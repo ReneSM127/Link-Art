@@ -43,9 +43,9 @@ Para que sepan que pedo con Github
 
 Esta rama es la padre y la main, aquí al rato subo los archivos principales y de ahí pueden crear ramas sin afectar esta porfa **Vean el tutorial de Git** pero en general pueden crear las ramas que quieran mientras no modifiquen la main
 
-# Correos
+# Correos o nombres de usuario github
 
-Aquí escriban sus correos para que los ponga como colaboradores. Les llegará una invitación y solo la aceptan
+Aquí escriban sus correos o username para que los ponga como colaboradores. Les llegará una invitación y solo la aceptan
 
 https://docs.google.com/document/d/1UPwNcC662aEvtO6qVnZt3MOWobrWnYQbIczdAcveP1M/edit?usp=sharing
 
