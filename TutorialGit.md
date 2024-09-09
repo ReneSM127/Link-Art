@@ -50,7 +50,7 @@ Aquí son archivos que sabemos que ya están listos para subirse al repositorio.
 
 Para clonar es bastante sencillo:
 
-```git clone github.com/ReneSM127/Link-Art.git``` <-- Se descarga todo.
+```git clone https://github.com/ReneSM127/Link-Art.git``` <-- Se descarga todo.
 
 Ahora para subir los commits se usa:
 
