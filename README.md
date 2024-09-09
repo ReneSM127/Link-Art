@@ -47,6 +47,8 @@ Esta rama es la padre y la main, aquí al rato subo los archivos principales y d
 
 Aquí escriban sus correos para que los ponga como colaboradores. Les llegará una invitación y solo la aceptan
 
+https://docs.google.com/document/d/1UPwNcC662aEvtO6qVnZt3MOWobrWnYQbIczdAcveP1M/edit?usp=sharing
+
 # Dudas en el salon o grupo jejej
 
 
