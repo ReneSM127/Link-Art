@@ -6,7 +6,7 @@ const Navbar = () => {
     <header className="header">
         <nav className="navbar">
 
-        <a href="" className="logo">
+        <a href="https://web.whatsapp.com/" className="logo">
             <img src="" alt="Logo" className="logo-image" />
         </a>
 
