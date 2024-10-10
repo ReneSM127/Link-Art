@@ -18,6 +18,7 @@ eso es todo aqui en routes, lo siguiente es en la carpeta de controllers
 const {
   renderIndex,
   renderLogin,
+  renderArtistas,
   renderNewEntry,
   createNewEntry,
 } = require("../controllers/entries.controller.js");
@@ -25,6 +26,8 @@ const {
 router.get("/", renderIndex);
 
 router.get("/login", renderLogin);
+
+router.get("/artistas", renderArtistas);
 
 router.get("/new-entry", renderNewEntry);
 
