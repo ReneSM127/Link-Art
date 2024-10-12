@@ -8,14 +8,18 @@ después añadimos "renderUsuario," en la parte de module.exports
 
 */
 
-
+/*  añadan ,{ currentPage: 'nombrePagina' } */
 
 const renderIndex = (req, res) => {
-    res.render('index');
+    res.render('index', { currentPage: 'index' });
 };
 
 const renderLogin = (req, res) => {
-    res.render('login');
+    res.render('login', { currentPage: 'login' });
+};
+
+const renderComprar = (req, res) => {
+    res.render('comprar', { currentPage: 'comprar' });
 };
 
 const renderNewEntry = (req, res) => {};
@@ -26,5 +30,6 @@ module.exports = {
     renderIndex,
     renderNewEntry,
     createNewEntry,
-    renderLogin
+    renderLogin,
+    renderComprar
 };
