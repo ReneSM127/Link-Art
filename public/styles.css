@@ -60,6 +60,14 @@ body {
   color: white !important;
 }
 
+.offcanvas-body{
+  background-color: black;
+}
+
+.offcanvas-header{
+  background-color: bisque;
+}
+
 .nav-link:hover,
 .nav-link.active:hover {
   color: #2d2e2e;
