@@ -12,6 +12,10 @@ app.set("view engine", "ejs");
 
 //middlewares
 app.use(morgan("dev"));
+<<<<<<< HEAD
+=======
+app.use(express.static('public'));
+>>>>>>> main
 app.use(express.urlencoded({extended: false}));
 
 //Rutas
