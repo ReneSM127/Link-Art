@@ -18,10 +18,6 @@ const renderLogin = (req, res) => {
     res.render('login');
 };
 
-const renderArtistas = (req, res) => {
-    res.render('artistas');
-}
-
 const renderNewEntry = (req, res) => {};
 
 const createNewEntry = (req, res) => {};
@@ -30,6 +26,5 @@ module.exports = {
     renderIndex,
     renderNewEntry,
     createNewEntry,
-    renderLogin,
-    renderArtistas
+    renderLogin
 };
