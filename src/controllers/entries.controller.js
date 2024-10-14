@@ -8,21 +8,6 @@ después añadimos "renderUsuario," en la parte de module.exports
 
 */
 
-<<<<<<< HEAD
-
-
-const renderIndex = (req, res) => {
-    res.render('index');
-};
-
-const renderLogin = (req, res) => {
-    res.render('login');
-};
-
-const renderArtistas = (req,res) => {
-    res.render('artistas')
-}
-=======
 /*  añadan ,{ currentPage: 'nombrePagina' } */
 
 const renderIndex = (req, res) => {
@@ -36,7 +21,10 @@ const renderLogin = (req, res) => {
 const renderComprar = (req, res) => {
     res.render('comprar', { currentPage: 'comprar' });
 };
->>>>>>> main
+
+const renderArtistas = (req, res) => {
+    res.render('artistas', { currentPage: 'artistas' });
+};
 
 const renderNewEntry = (req, res) => {};
 
@@ -47,9 +35,6 @@ module.exports = {
     renderNewEntry,
     createNewEntry,
     renderLogin,
-<<<<<<< HEAD
+    renderComprar,
     renderArtistas
-=======
-    renderComprar
->>>>>>> main
 };
