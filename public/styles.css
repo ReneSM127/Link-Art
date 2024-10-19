@@ -132,3 +132,15 @@ b{
   color: red;
   text-decoration: underline;
 }
+
+.mask1 {
+  background: url(https://imgs.search.brave.com/XinkZ41fr-lQfnAV3u8wd-WtD3VsA5PbmydNjLtdg9w/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pMC53/cC5jb20vYXJ0ZXlh/bGdvbWFzLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMS8x/Mi9IYW5uYS1Ib2No/Li1Db2xsYWdlLXkt/Zm90b21vbnRhamUu/anBnP3Jlc2l6ZT05/NjAsNDUwJnNzbD0x) no-repeat;
+  background-size: 100%;
+  -webkit-mask-image: linear-gradient(rgb(0, 0, 0) 85%, transparent);
+  mask-image: linear-gradient (black 85%, transparent);
+}
+
+.shadow {
+  color: white;
+  text-shadow: 4px 4px 8px #000000;
+}
