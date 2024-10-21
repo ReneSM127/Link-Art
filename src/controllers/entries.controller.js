@@ -26,10 +26,15 @@ const renderNewEntry = (req, res) => {};
 
 const createNewEntry = (req, res) => {};
 
+const renderRegister = (req, res) => {
+    res.render('register');
+};
+
 module.exports = {
     renderIndex,
     renderNewEntry,
     createNewEntry,
     renderLogin,
-    renderComprar
+    renderComprar,
+    renderRegister
 };

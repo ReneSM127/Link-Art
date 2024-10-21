@@ -21,6 +21,7 @@ const {
   renderComprar,
   renderNewEntry,
   createNewEntry,
+  renderRegister,
 } = require("../controllers/entries.controller.js");
 
 router.get("/", renderIndex);
@@ -28,6 +29,8 @@ router.get("/", renderIndex);
 router.get("/login", renderLogin);
 
 router.get("/comprar", renderComprar);
+
+router.get("/register", renderRegister);
 
 router.get("/new-entry", renderNewEntry);
 
