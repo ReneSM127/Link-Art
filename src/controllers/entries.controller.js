@@ -1,3 +1,4 @@
+const connection = require("../db")
 /*
 Para añadir una funcion de renderizado de por ejemplo usuarios.ejs, copiaremos las lineas cambiando el nombre
 const renderUsuario = (req, res) => {
@@ -24,7 +25,20 @@ const renderComprar = (req, res) => {
 
 const renderNewEntry = (req, res) => {};
 
-const createNewEntry = (req, res) => {};
+const createUser = (req, res) => {
+    const correo = req.body.email;
+    const query = 'INSERT INTO correos VALUES (?)';
+    connection.query(query, correo, (err, result) => {
+        if (err) {
+          console.error('Error insertando datos:', err);
+          return res.status(500).send('Error al insertar los datos en la base de datos.');
+        }
+    
+        // Redirigir o mostrar un mensaje de éxito
+        res.redirect("/");
+    });
+
+};
 
 const renderRegister = (req, res) => {
     res.render('register');
@@ -33,7 +47,7 @@ const renderRegister = (req, res) => {
 module.exports = {
     renderIndex,
     renderNewEntry,
-    createNewEntry,
+    createUser,
     renderLogin,
     renderComprar,
     renderRegister

@@ -20,7 +20,7 @@ const {
   renderLogin,
   renderComprar,
   renderNewEntry,
-  createNewEntry,
+  createUser,
   renderRegister,
 } = require("../controllers/entries.controller.js");
 
@@ -34,6 +34,6 @@ router.get("/register", renderRegister);
 
 router.get("/new-entry", renderNewEntry);
 
-router.post("/new-entry", createNewEntry);
+router.post("/auth", createUser);
 
 module.exports = router;
