@@ -22,6 +22,7 @@
 
     <!-- Estilos propios -->
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styleOB.css" />
   </head>
 
   <body class="d-flex flex-column min-vh-100">
@@ -74,14 +75,14 @@
               <li class="nav-item">
                 <a
                   class="nav-link mx-lg-2 <%= currentPage === 'artistas' ? 'active' : '' %>"
-                  href="/"
+                  href="/artistas"
                   >Artistas</a
                 >
               </li>
               <li class="nav-item">
                 <a
                   class="nav-link mx-lg-2 <%= currentPage === 'obras' ? 'active' : '' %>"
-                  href="/"
+                  href="/obras"
                   >Obras</a
                 >
               </li>
@@ -102,7 +103,7 @@
             </ul>
           </div>
         </div>
-        <a href="/" class="register-button">Registrarse</a>
+        <a href="/register" class="register-button">Registrarse</a>
         <a href="/login" class="loggin-button">Iniciar Sesion</a>
         <button
           class="navbar-toggler pe-0"

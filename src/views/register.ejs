@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Roboto", sans-serif;
+      background-color: #000000;
+      color: white;
+      height: 100vh;
+      display: flex;
+    }
+    .wrapper {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+    }
+    .form-container {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000000;
+    }
+    .form-content {
+      width: 80%;
+      max-width: 400px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 20px;
+      margin-bottom: 50px;
+    }
+    label {
+      font-size: 17px;
+      margin-left: 30px;
+    }
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .checkbox-container input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .btn {
+      width: 100%;
+      padding: 14px;
+      background-color: transparent; 
+      border: 2px solid #fff; 
+      border-radius: 30px;
+      color: #fff; 
+      font-size: 18px;
+      font-weight: 700; 
+      cursor: pointer;
+      margin-top: 20px;
+      font-family: 'Roboto', sans-serif;
+      text-transform: uppercase; 
+      transition: all 0.3s ease; 
+    }
+    .btn:hover {
+      background-color: #fff; 
+      color: #000; 
+    }
+
+    .image-container {
+      width: 50%;
+      background: url('https://i.pinimg.com/564x/6e/17/ab/6e17abdb385d0911d25b1edfb3932a3a.jpg') no-repeat center center/cover;
+      box-shadow: inset -10px 0px 20px 5px rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <!-- Contenedor del formulario -->
+    <div class="form-container">
+      <div class="form-content">
+        <h1>REGISTRARSE</h1>
+        <form action="/register" method="POST">
+          <input type="email" name="email" placeholder="Dirección de Email" required>
+          
+          <div class="checkbox-container">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <label for="privacy">
+              Tienes que leer y aceptar nuestros términos en <a href="#">Política de Privacidad</a>
+            </label>
+          </div>
+
+          <div class="checkbox-container">
+            <input type="checkbox" id="marketing" name="marketing">
+            <label for="marketing">
+              Consientes recibir comunicaciones de marketing de Nothing
+            </label>
+          </div>
+
+          <button type="submit" class="btn">CONFIRMAR</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Contenedor de la imagen -->
+    <div class="image-container"></div>
+  </div>
+
+</body>
+</html>
