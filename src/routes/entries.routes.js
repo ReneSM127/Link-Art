@@ -20,6 +20,7 @@ const {
   renderLogin,
   renderComprar,
   renderArtistas,
+  renderProfile,
   renderNewEntry,
   createNewEntry,
 } = require("../controllers/entries.controller.js");
@@ -31,6 +32,8 @@ router.get("/login", renderLogin);
 router.get("/comprar", renderComprar);
 
 router.get("/artistas", renderArtistas);
+
+router.get("/profile", renderProfile);
 
 router.get("/new-entry", renderNewEntry);
 

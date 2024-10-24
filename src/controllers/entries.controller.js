@@ -26,6 +26,10 @@ const renderArtistas = (req, res) => {
     res.render('artistas', { currentPage: 'artistas' });
 };
 
+const renderProfile = (req, res) => {
+    res.render('profile', { currentPage: 'profile' });
+};
+
 const renderNewEntry = (req, res) => {};
 
 const createNewEntry = (req, res) => {};
@@ -36,5 +40,6 @@ module.exports = {
     createNewEntry,
     renderLogin,
     renderComprar,
-    renderArtistas
+    renderArtistas,
+    renderProfile
 };
