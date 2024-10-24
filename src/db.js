@@ -2,10 +2,10 @@ const mysql = require("mysql2");
 
 // Crear conexión a la base de datos
 const connection = mysql.createConnection({
-  host: "localhost", // Cambia por tu host (puede ser una IP o 'localhost')
-  user: "root", // Tu usuario de MySQL
-  password: "", // La contraseña del usuario
-  database: "pruebaNODE", // El nombre de la base de datos
+  host: "bd-link-art.mysql.database.azure.com", // Cambia por tu host (puede ser una IP o 'localhost')
+  user: "administrador", // Tu usuario de MySQL
+  password: "Link-Art", // La contraseña del usuario
+  database: "linkart", // El nombre de la base de datos
 });
 
 // Conectar a la base de datos

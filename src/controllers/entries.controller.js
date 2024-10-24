@@ -31,7 +31,7 @@ const renderNewEntry = (req, res) => {};
 
 const createUser = (req, res) => {
     const correo = req.body.email;
-    const query = 'INSERT INTO correos VALUES (?)';
+    const query = 'INSERT INTO usuarios(correo) VALUES (?)';
     connection.query(query, correo, (err, result) => {
         if (err) {
           console.error('Error insertando datos:', err);
