@@ -23,6 +23,29 @@
       width: 100%;
       height: 100vh;
     }
+    .back-arrow {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      transition: all 0.3s;
+    }
+    .back-arrow:hover {
+      background-color: white;
+      color: black;
+      border-color: white;
+    }
     .form-container {
       width: 50%;
       display: flex;
@@ -39,18 +62,20 @@
       font-size: 40px;
       margin-bottom: 40px;
     }
-    input[type="email"] {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
       width: 100%;
       padding: 10px;
       border-radius: 10px;
       border: none;
       outline: none;
       font-size: 20px;
-      margin-bottom: 50px;
+      margin-bottom: 20px;
     }
     label {
       font-size: 17px;
-      margin-left: 30px;
+      margin-left: 5px;
     }
     .checkbox-container {
       display: flex;
@@ -79,7 +104,6 @@
       background-color: #fff; 
       color: #000; 
     }
-
     .image-container {
       width: 50%;
       background: url('https://i.pinimg.com/564x/6e/17/ab/6e17abdb385d0911d25b1edfb3932a3a.jpg') no-repeat center center/cover;
@@ -89,13 +113,21 @@
 </head>
 <body>
 
+  
+  <a href="/" class="back-arrow">&#11013;</a>
+
   <div class="wrapper">
-    <!-- Contenedor del formulario -->
+   
     <div class="form-container">
       <div class="form-content">
         <h1>REGISTRARSE</h1>
         <form action="/auth" method="POST">
+          <input type="text" name="nombre" placeholder="Nombres" required>
+          <input type="text" name="apellido" placeholder="Apellidos" required>
+          <input type="text" name="username" placeholder="Nombre de Usuario" required>
           <input type="email" name="email" placeholder="Dirección de Email" required>
+          <input type="password" name="password" placeholder="Contraseña" required>
+          <input type="password" name="confirm_password" placeholder="Confirmar Contraseña" required>
           
           <div class="checkbox-container">
             <input type="checkbox" id="privacy" name="privacy" required>
@@ -116,9 +148,9 @@
       </div>
     </div>
 
-    <!-- Contenedor de la imagen -->
     <div class="image-container"></div>
   </div>
 
 </body>
 </html>
+
