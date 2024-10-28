@@ -1,0 +1,35 @@
+<%- include ('partials/header')%>
+<main>
+    <style>
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 230px);
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .grid-item {
+        width: 230px;
+        height: 200px;
+        object-fit: cover;
+    }
+    </style>
+    <div class="grid-container">
+        <img class="grid-item" src="https://picsum.photos/200/300.jpg">
+        <img class="grid-item" src="https://picsum.photos/200/500.jpg">
+        <img class="grid-item" src="https://picsum.photos/700/400.jpg">
+        <img class="grid-item" src="https://picsum.photos/900/450.jpg">
+        <img class="grid-item" src="https://picsum.photos/600/370.jpg">
+        <img class="grid-item" src="https://picsum.photos/100/300.jpg">
+        <img class="grid-item" src="https://picsum.photos/200/700.jpg">
+        <img class="grid-item" src="https://picsum.photos/50/100.jpg">
+        <img class="grid-item" src="https://picsum.photos/600/200.jpg">
+        <img class="grid-item" src="https://picsum.photos/450/500.jpg">
+        <img class="grid-item" src="https://picsum.photos/240/560.jpg">
+        <img class="grid-item" src="https://picsum.photos/150/300.jpg">
+        <img class="grid-item" src="https://picsum.photos/300/600.jpg">
+        <img class="grid-item" src="https://picsum.photos/900/510.jpg">
+        <img class="grid-item" src="https://picsum.photos/800/400.jpg">
+    </div>
+</main>
+<%- include ('partials/footer')%>
