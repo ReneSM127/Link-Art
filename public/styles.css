@@ -100,36 +100,3 @@
   }
 }
 
-
-.hero-section {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-background {
-  background-image: url('noche-estrellada.jpg');
-  background-size: cover;
-  background-position: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.60;
-}
-
-.container h1 {
-  z-index: 1; /* Asegura que el texto esté sobre la imagen */
-  position: relative;
-  font-size: 100px;
-  color: black;
-}
-
-b{
-  color: red;
-  text-decoration: underline;
-}
-

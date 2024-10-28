@@ -1,17 +1,116 @@
 <%- include ('partials/header')%>
+<!-- Estilos propios -->
+<link rel="stylesheet" href="/index.css" />
+
 <!-- Hero section -->
 <section class="hero-section">
-    <div class="image-background"></div>
-    <div class="container d-flex justify-items-center">
-        <div class="row justify-content-center fs-1">
-            <div class="col">
-                <h1>Descubre <b>ARTE</b> en CANCÚN</h1>
-            </div>
-            <div class="col">
-                <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis perferendis architecto at odit, sint voluptatum, tempora accusamus quasi dolor maiores laudantium atque aliquam quas vitae error magnam modi totam pariatur.</h2>
-            </div>
-        </div>
+  <div class="image-background"></div>
+  <div class="container d-flex justify-items-center">
+    <div class="row justify-content-center fs-1">
+      <div class="col">
+        <h1>Descubre <b>ARTE</b> en <u>CANCÚN</u></h1>
+      </div>
+      <div class="col">
+        <img
+          src="https://i.pinimg.com/236x/67/7d/13/677d13cdf55692946a9a46d84c33d93d.jpg"
+          class="rounded mx-auto d-block"
+          alt="..."
+        />
+      </div>
+      <div class="d-flex justify-content-center">
+        <a href="#Conocenos" class="imagen">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="128"
+            height="128"
+            fill="white"
+            class="bi bi-chevron-compact-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67"
+            />
+          </svg>
+        </a>
+      </div>
     </div>
+  </div>
 </section>
+
+<section id="Conocenos" class="AboutUs">
+  <div class="container d-flex justify-content-end p-1">
+    <h2>¿Quienes somos?</h2>
+  </div>
+  <div class="container d-flex justify-content-center p-1" id="texto">
+    <p>
+      Bienvenido a LinkArt, la plataforma para conectar a los artistas locales
+      de Cancun con amantes del arte y coleccionistas. Descubre y compra arte
+      autentico, explora una amplia variedad de estilos y medios, y encarga
+      obras personalizadas directamente a talentosos artistas locales.
+    </p>
+  </div>
+</section>
+
+<section class="Destacados">
+  <div class="container d-flex justify-items-center">
+    <div class="row justify-content-center fs-1">
+      <div class="col text-center m-5">
+        <h2>Descubre los artistas destacados y muestrales tu apoyo</h2>
+      </div>
+      <div class="col d-flex" id="ImgDest">
+        <img
+          src="https://i.pinimg.com/236x/67/7d/13/677d13cdf55692946a9a46d84c33d93d.jpg"
+          class="rounded mx-auto d-block"
+          alt="..."
+        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="7vw"
+          height="7vw"
+          fill="white"
+          class="bi bi-chevron-compact-right"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="Venta">
+  <div class="container d-flex justify-items-center">
+    <div class="row justify-content-center fs-1">
+      <div class="col text-center m-5">
+        <h2>Descubre las obras en venta destacadas</h2>
+      </div>
+      <div class="col d-flex" id="ImgDest">
+        <img
+          src="https://i.pinimg.com/236x/67/7d/13/677d13cdf55692946a9a46d84c33d93d.jpg"
+          class="rounded mx-auto d-block"
+          alt="..."
+        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="7vw"
+          height="7vw"
+          fill="white"
+          class="bi bi-chevron-compact-right"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <%- include ('partials/footer')%>

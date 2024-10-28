@@ -25,7 +25,7 @@ const renderComprar = (req, res) => {
 };
 
 const renderArtistas = (req, res) => {
-    res.render('artistas', { currentPage: 'artistas' });
+    res.render('artist', { currentPage: 'artist' });
 };
 
 const renderObras = (req, res) => {
