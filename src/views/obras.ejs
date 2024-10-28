@@ -1,35 +1,48 @@
 <%- include ('partials/header')%>
 <main>
-    <style>
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 230px);
-        gap: 20px;
-        justify-content: center;
-    }
-
-    .grid-item {
-        width: 230px;
-        height: 200px;
-        object-fit: cover;
-    }
-    </style>
-    <div class="grid-container">
-        <img class="grid-item" src="https://picsum.photos/200/300.jpg">
-        <img class="grid-item" src="https://picsum.photos/200/500.jpg">
-        <img class="grid-item" src="https://picsum.photos/700/400.jpg">
-        <img class="grid-item" src="https://picsum.photos/900/450.jpg">
-        <img class="grid-item" src="https://picsum.photos/600/370.jpg">
-        <img class="grid-item" src="https://picsum.photos/100/300.jpg">
-        <img class="grid-item" src="https://picsum.photos/200/700.jpg">
-        <img class="grid-item" src="https://picsum.photos/50/100.jpg">
-        <img class="grid-item" src="https://picsum.photos/600/200.jpg">
-        <img class="grid-item" src="https://picsum.photos/450/500.jpg">
-        <img class="grid-item" src="https://picsum.photos/240/560.jpg">
-        <img class="grid-item" src="https://picsum.photos/150/300.jpg">
-        <img class="grid-item" src="https://picsum.photos/300/600.jpg">
-        <img class="grid-item" src="https://picsum.photos/900/510.jpg">
-        <img class="grid-item" src="https://picsum.photos/800/400.jpg">
+    <link rel="stylesheet" href="stylesOB.css">
+    <div class="bg-black">
+        <div class="contBuscar">
+            <div class="buscar">
+                <input type="text" placeholder="Buscar" required />
+                <div class="btn">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>              
+                </div>
+            </div>
+        </div>
+        <div class="grid-container">
+            <img class="grid-item" src="https://picsum.photos/200/300.jpg" width="200" height="300">
+            <img class="grid-item" src="https://picsum.photos/200/500.jpg" width="200" height="500">
+            <img class="grid-item" src="https://picsum.photos/700/400.jpg" width="700" height="400">
+            <img class="grid-item" src="https://picsum.photos/900/450.jpg" width="900" height="450">
+            <img class="grid-item" src="https://picsum.photos/600/370.jpg" width="600" height="370">
+            <img class="grid-item" src="https://picsum.photos/100/300.jpg" width="100" height="300">
+            <img class="grid-item" src="https://picsum.photos/200/700.jpg" width="200" height="700">
+            <img class="grid-item" src="https://picsum.photos/230/100.jpg" width="230" height="100">
+            <img class="grid-item" src="https://picsum.photos/600/200.jpg" width="600" height="200">
+            <img class="grid-item" src="https://picsum.photos/450/500.jpg" width="450" height="500">
+            <img class="grid-item" src="https://picsum.photos/240/560.jpg" width="240" height="560">
+            <img class="grid-item" src="https://picsum.photos/150/300.jpg" width="150" height="300">
+            <img class="grid-item" src="https://picsum.photos/300/600.jpg" width="300" height="600">
+            <img class="grid-item" src="https://picsum.photos/900/510.jpg" width="900" height="510">
+            <img class="grid-item" src="https://picsum.photos/800/400.jpg" width="800" height="400">
+            <img class="grid-item" src="https://picsum.photos/400/200.jpg" width="400" height="200">
+            <img class="grid-item" src="https://picsum.photos/900/500.jpg" width="900" height="500">
+            <img class="grid-item" src="https://picsum.photos/250/100.jpg" width="250" height="100">
+        </div>
     </div>
+    <script src="https://kit.fontawesome.com/577e4ce119.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script>
+    var elem = document.querySelector('.grid-container');
+    var msnry = new Masonry( elem, {
+        // options
+        itemSelector: '.grid-item',
+        columnWidth: 230,
+        gutter: 20,
+        isFitWidth: true
+    }); 
+    </script>
 </main>
 <%- include ('partials/footer')%>
