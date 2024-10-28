@@ -23,6 +23,8 @@ const {
   renderNewEntry,
   createUser,
   renderObras,
+  renderVender,
+  renderVendedor,
   renderRegister
 } = require("../controllers/entries.controller.js");
 
@@ -37,6 +39,10 @@ router.get("/register", renderRegister);
 router.get("/artistas", renderArtistas);
 
 router.get("/obras", renderObras);
+
+router.get("/vender", renderVender);
+
+router.get("/vendedor", renderVendedor);
 
 router.get("/new-entry", renderNewEntry);
 
