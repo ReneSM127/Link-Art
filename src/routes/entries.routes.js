@@ -34,9 +34,9 @@ router.get("/comprar", renderComprar);
 
 router.get("/register", renderRegister);
 
-router.get("/obras", renderObras);
+router.get("/artistas", renderArtistas);
 
-router.get("/register", renderRegister);
+router.get("/obras", renderObras);
 
 router.get("/new-entry", renderNewEntry);
 
