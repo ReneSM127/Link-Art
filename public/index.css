@@ -1,0 +1,82 @@
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-background {
+  background-image: url("https://media.istockphoto.com/id/944880340/es/foto/render-3d-abstracto-superficie-ca%C3%B3tica-polivin%C3%ADlico-baja-negro.jpg?s=612x612&w=0&k=20&c=qxVmNTVAzQqMbdcUBoHUoNxdkEAbrB-MR3wueplhZSc=");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.container h1 {
+  z-index: 1; /* Asegura que el texto esté sobre la imagen */
+  position: relative;
+  font-size: 7vw;
+  color: white;
+}
+
+
+b {
+  text-shadow: 2px 2px 2px rgb(157, 157, 157);
+  text-decoration: underline;
+}
+
+.imagen{
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out;
+}
+
+.imagen:hover{
+  transform: translateY(
+      50%
+    );
+}
+
+#Conocenos{
+  background-color: black;
+  position: relative;
+}
+
+h2{
+  color: white;
+  font-size: 3vw;
+}
+
+#texto{
+  color: white;
+  font-size: 3vw;
+  text-align: center;
+}
+
+.Destacados{
+  color: black;
+  background-color: #4f4f4f;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#ImgDest{
+  align-items: center;
+}
+
+.Emergentes{
+  background-color: #a6a6a6;
+}
+
+
+.Venta{
+  background-color: aqua;
+}

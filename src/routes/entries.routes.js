@@ -22,7 +22,9 @@ const {
   renderArtistas,
   renderProfile,
   renderNewEntry,
-  createNewEntry,
+  createUser,
+  renderObras,
+  renderRegister
 } = require("../controllers/entries.controller.js");
 
 router.get("/", renderIndex);
@@ -31,12 +33,15 @@ router.get("/login", renderLogin);
 
 router.get("/comprar", renderComprar);
 
+router.get("/register", renderRegister);
+
 router.get("/artistas", renderArtistas);
 
+router.get("/obras", renderObras);
 router.get("/profile", renderProfile);
 
 router.get("/new-entry", renderNewEntry);
 
-router.post("/new-entry", createNewEntry);
+router.post("/auth", createUser);
 
 module.exports = router;
