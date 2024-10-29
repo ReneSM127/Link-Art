@@ -20,6 +20,7 @@ const {
   renderLogin,
   renderComprar,
   renderArtistas,
+  renderProfile,
   renderNewEntry,
   createUser,
   renderObras,
@@ -37,6 +38,7 @@ router.get("/register", renderRegister);
 router.get("/artistas", renderArtistas);
 
 router.get("/obras", renderObras);
+router.get("/profile", renderProfile);
 
 router.get("/new-entry", renderNewEntry);
 

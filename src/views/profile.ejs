@@ -1,0 +1,64 @@
+<%- include ('partials/header')%>
+<link rel="stylesheet" href="/profilestyles.css">
+<body>
+    <div class="profile-container">
+        <header class="profile-header">
+            <img src="https://imgs.search.brave.com/4hp_G5R6bLgiOsjx-Yne4WvoIAVI9gK7iwnJH-w4KrQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxNy8x/MS8xMC8wNS80OC91/c2VyLTI5MzU1Mjdf/NjQwLnBuZw" alt="Foto de perfil">
+            <div class="profile-info">
+                <h1>Nombre de Usuario</h1>
+                <div class="stats">
+                    <div>
+                        <strong>50</strong>
+                        Publicaciones
+                    </div>
+                    <div>
+                        <strong>1,000</strong>
+                        Seguidores
+                    </div>
+                    <div>
+                        <strong>120</strong>
+                        Seguidos
+                    </div>
+                    <div>
+                        <button class="edit-profile-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                              </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="profile-bio">
+                    <p>Biografía del usuario. Aquí puedes escribir una breve descripción sobre ti.</p>
+                </div>
+            </div>
+        </header>
+        <br>
+        <h2><strong>Publicaciones</strong></h2>
+        <section class="gallery">
+            <img src="https://via.placeholder.com/300" alt="Publicación 1">
+            <img src="https://via.placeholder.com/300" alt="Publicación 2">
+            <img src="https://via.placeholder.com/300" alt="Publicación 3">
+            <img src="https://via.placeholder.com/300" alt="Publicación 4">
+            <img src="https://via.placeholder.com/300" alt="Publicación 5">
+            <img src="https://via.placeholder.com/300" alt="Publicación 6">
+        </section>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <section class="text-center">
+            <h2>Editar Perfil</h2>
+            </section>
+            <form>
+                <label for="username">Nombre de Usuario:</label>
+                <input type="text" id="username" name="username" placeholder="Nombre de Usuario"><br>
+                <label for="bio">Biografía:</label>
+                <textarea id="bio" name="bio" placeholder="Descripción..."></textarea><br>
+                <button type="submit" class="align-items-center">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+    <script src="/profilescript.js"></script>
+</body>
+<%- include ('partials/footer')%>
