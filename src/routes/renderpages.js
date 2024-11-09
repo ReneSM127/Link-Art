@@ -23,7 +23,8 @@ const {
   renderProfile,
   renderNewEntry,
   renderObras,
-  renderRegister
+  renderRegister,
+  renderFile
 } = require("../controllers/renderpages.js");
 
 router.get("/", renderIndex);
@@ -40,7 +41,7 @@ router.get("/obras", renderObras);
 
 router.get("/profile", renderProfile);
 
-router.get("/new-entry", renderNewEntry);
+router.get("/file", renderFile);
 
 
 module.exports = router;

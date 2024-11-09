@@ -36,7 +36,9 @@ const renderProfile = (req, res) => {
     res.render('profile', { currentPage: 'profile' });
 };
 
-const renderNewEntry = (req, res) => {};
+const renderFile = (req, res) => {
+    res.render("file")
+};
 
 
 
@@ -47,7 +49,7 @@ const renderRegister = (req, res) => {
 
 module.exports = {
     renderIndex,
-    renderNewEntry,
+    renderFile,
     renderLogin,
     renderComprar,
     renderArtistas,
