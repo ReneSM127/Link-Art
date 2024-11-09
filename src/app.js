@@ -16,7 +16,8 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
 
 //Rutas
-app.use(require('./routes/entries.routes.js'))
+app.use(require('./routes/renderpages.js'))
+app.use(require('./routes/auth.js'))
 
 //404
 app.use((req, res) => {
