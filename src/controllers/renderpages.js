@@ -42,11 +42,11 @@ const renderFile = (req, res) => {
 
 const renderIMG = (req, res) => {
     //aqui consulta la url para cargarla
-    const sql = "SELECT img FROM usuarios where id=1";
+    const sql = "SELECT foto FROM usuarios where id=1";
     connection.query(sql, (err, results) => {
         if (err) throw err;
         console.log(results[0])
-        res.render('verIMG', { imagenes: results[0].img });
+        res.render('verIMG', { imagenes: results[0].foto });
     });
 };
 
