@@ -40,6 +40,16 @@ const renderFile = (req, res) => {
     res.render("file")
 };
 
+const renderIMG = (req, res) => {
+    const sql = "SELECT img FROM usuarios where id=1";
+    connection.query(sql, (err, results) => {
+        if (err) throw err;
+        console.log(results[0])
+        res.render('verIMG', { imagenes: results[0].img });
+    });
+};
+
+
 
 
 const renderRegister = (req, res) => {
@@ -55,5 +65,6 @@ module.exports = {
     renderArtistas,
     renderObras,
     renderRegister,
-    renderProfile
+    renderProfile,
+    renderIMG
 };

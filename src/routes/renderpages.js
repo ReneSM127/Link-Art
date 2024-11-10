@@ -24,7 +24,8 @@ const {
   renderNewEntry,
   renderObras,
   renderRegister,
-  renderFile
+  renderFile,
+  renderIMG
 } = require("../controllers/renderpages.js");
 
 router.get("/", renderIndex);
@@ -43,5 +44,6 @@ router.get("/profile", renderProfile);
 
 router.get("/file", renderFile);
 
+router.get("/verIMG", renderIMG);
 
 module.exports = router;
