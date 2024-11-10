@@ -52,6 +52,7 @@
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 <div class="col">
                   <div class="card shadow-sm bg-black">
+                    <a href="/profile/<%= dato[0].nombreUsuario %>">
                     <img
                       src="https://imgs.search.brave.com/e7jh9W22UexklL2QpeA2wuj4lsD6QoJa1TDcQ7zLbOI/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWRzOC53aWtpYXJ0/Lm9yZy9pbWFnZXMv/dmluY2VudC12YW4t/Z29naC5qcGchUG9y/dHJhaXQuanBn"
                       width="100%"
@@ -59,10 +60,11 @@
                       class="rounded float"
                       text="Foto"
                     />
+                    </a>
                     <div class="card-body bg-black">
                       <p class="card-text text-light">
-                        Vincent van Gogh <br />
-                        Pintor neerlandés (1853-1890)
+                        <%= dato[0].nombreUsuario %> <br />
+                        <%= dato[0].correo %>
                       </p>
                       <div
                         class="d-flex justify-content-between align-items-center"

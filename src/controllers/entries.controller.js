@@ -25,7 +25,24 @@ const renderComprar = (req, res) => {
 };
 
 const renderArtistas = (req, res) => {
-    res.render('artist', { currentPage: 'artist' });
+    const query = 'SELECT nombreUsuario, correo FROM usuarios'; // Consulta para un dato específico
+
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error('Error en la consulta:', err);
+            return res.status(500).send('Error al obtener datos');
+        }
+
+        if (results.length === 0) {
+            return res.status(404).send('No se encontraron resultados');
+        }
+
+        // Pasa los datos necesarios, incluyendo 'currentPage'
+        res.render('artist', {
+            currentPage: 'artist',
+            dato: results
+        });
+    });
 };
 
 const renderObras = (req, res) => {
