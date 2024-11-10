@@ -32,10 +32,6 @@ const renderObras = (req, res) => {
     res.render('obras', { currentPage: 'obras' });
 };
 
-const renderProfile = (req, res) => {
-    res.render('profile', { currentPage: 'profile' });
-};
-
 const renderNewEntry = (req, res) => {};
 
 const createUser = (req, res) => {
@@ -83,6 +79,24 @@ const renderRegister = (req, res) => {
     res.render('register');
 };
 
+const renderProfile = (req, res) => {
+    const query = "SELECT * FROM usuarios WHERE nombreUsuario = ?";
+    const username = req.params.nombreUsuario; // Extrae el nombre de usuario de la URL
+
+    connection.query(query, [username], (err, results) => {
+        if (err) {
+            console.error('Error al extraer los datos:', err);
+            return res.status(500).send('Error al extraer los datos de la base de datos.');
+        }
+
+        if (results.length === 0) {
+            return res.status(404).send('Usuario no encontrado');
+        }
+
+        // Renderiza la vista y pasa los datos del usuario y la variable currentPage
+        res.render('profile', { currentPage: 'profile', user: results[0] });
+    });
+};
 
 module.exports = {
     renderIndex,

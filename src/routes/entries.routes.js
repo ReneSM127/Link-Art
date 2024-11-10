@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const router = Router();
-
 /*
 El enrutador sirve para cambiar entre paginas, el controlador es el encargado de la logica del cambio
 Para añadir uno es sencillo, primero agregan un nuevo archivo en la carpeta de views, por ejemplo "usuario.ejs"
@@ -38,7 +37,8 @@ router.get("/register", renderRegister);
 router.get("/artistas", renderArtistas);
 
 router.get("/obras", renderObras);
-router.get("/profile", renderProfile);
+
+router.get("/profile/:nombreUsuario", renderProfile);
 
 router.get("/new-entry", renderNewEntry);
 
