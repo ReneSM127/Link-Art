@@ -41,6 +41,7 @@ const renderFile = (req, res) => {
 };
 
 const renderIMG = (req, res) => {
+    //aqui consulta la url para cargarla
     const sql = "SELECT img FROM usuarios where id=1";
     connection.query(sql, (err, results) => {
         if (err) throw err;

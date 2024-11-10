@@ -24,7 +24,7 @@ const upload = multer({
 const pathname = (req, res) => {
   //aqui se inserta la dirección para buscar la imagen
   const imagePath = `uploads/${req.file.filename}`;
-  q = "UPDATE usuarios SET img = (?) WHERE id = 1"; //<- CUIDADO, de momento solo actualiza el id 1, en el futuro buscara el id del usuario logeado
+  q = "UPDATE usuarios SET foto = (?) WHERE id = 1"; //<- CUIDADO, de momento solo actualiza el id 1, en el futuro buscara el id del usuario logeado
   connection.query(q, [imagePath], (err, data) => {
     if (err) return res.status(500).json(err);
 
