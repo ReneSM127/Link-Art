@@ -25,25 +25,66 @@ const renderComprar = (req, res) => {
 };
 
 const renderArtistas = (req, res) => {
-    res.render('artist', { currentPage: 'artist' });
+    const query1 = 'SELECT nombreUsuario, correo FROM usuarios LIMIT 9';
+    const query2 = 'SELECT * FROM usuarios WHERE FIND_IN_SET("pintor", categoria) > 0 LIMIT 9';
+
+    // Ejecutar la primera consulta
+    connection.query(query1, (err, results1) => {
+        if (err) {
+            console.error('Error en la consulta 1:', err);
+            return res.status(500).send('Error al obtener datos');
+        }
+
+        if (results1.length === 0) {
+            return res.status(404).send('No se encontraron resultados para la consulta 1');
+        }
+
+        // Ejecutar la segunda consulta después de que la primera haya finalizado
+        connection.query(query2, (err, results2) => {
+            if (err) {
+                console.error('Error en la consulta 2:', err);
+                return res.status(500).send('Error al obtener datos');
+            }
+
+            // Pasa los datos necesarios, incluyendo ambos resultados
+            res.render('artist', {
+                currentPage: 'artist',
+                dato: results1,   // Resultados de la primera consulta
+                pintores: results2 // Resultados de la segunda consulta
+            });
+        });
+    });
 };
 
 const renderObras = (req, res) => {
     res.render('obras', { currentPage: 'obras' });
 };
 
-const renderProfile = (req, res) => {
-    res.render('profile', { currentPage: 'profile' });
-};
-
 const renderNewEntry = (req, res) => {};
-
 
 
 const renderRegister = (req, res) => {
     res.render('register');
 };
 
+const renderProfile = (req, res) => {
+    const query = "SELECT * FROM usuarios WHERE nombreUsuario = ?";
+    const username = req.params.nombreUsuario; // Extrae el nombre de usuario de la URL
+
+    connection.query(query, [username], (err, results) => {
+        if (err) {
+            console.error('Error al extraer los datos:', err);
+            return res.status(500).send('Error al extraer los datos de la base de datos.');
+        }
+
+        if (results.length === 0) {
+            return res.status(404).send('Usuario no encontrado');
+        }
+
+        // Renderiza la vista y pasa los datos del usuario y la variable currentPage
+        res.render('profile', { currentPage: 'profile', user: results[0] });
+    });
+};
 
 module.exports = {
     renderIndex,
