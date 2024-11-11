@@ -38,8 +38,6 @@ router.get("/artistas", renderArtistas);
 
 router.get("/obras", renderObras);
 
-router.get("/profile", renderProfile);
-
 router.get("/file", renderFile);
 
 router.get("/profile/:nombreUsuario", renderProfile);
