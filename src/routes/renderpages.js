@@ -20,9 +20,10 @@ const {
   renderComprar,
   renderArtistas,
   renderProfile,
-  renderNewEntry,
   renderObras,
-  renderRegister
+  renderRegister,
+  renderFile,
+  renderIMG
 } = require("../controllers/renderpages.js");
 
 router.get("/", renderIndex);
@@ -39,10 +40,10 @@ router.get("/obras", renderObras);
 
 router.get("/profile", renderProfile);
 
-router.get("/new-entry", renderNewEntry);
+router.get("/file", renderFile);
 
 router.get("/profile/:nombreUsuario", renderProfile);
 
-router.get("/new-entry", renderNewEntry);
+router.get("/verIMG", renderIMG);
 
 module.exports = router;

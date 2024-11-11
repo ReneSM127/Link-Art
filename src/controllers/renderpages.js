@@ -60,7 +60,21 @@ const renderObras = (req, res) => {
     res.render('obras', { currentPage: 'obras' });
 };
 
-const renderNewEntry = (req, res) => {};
+
+const renderFile = (req, res) => {
+    res.render("file")
+};
+
+const renderIMG = (req, res) => {
+    //aqui consulta la url para cargarla
+    const sql = "SELECT foto FROM usuarios where id=1";
+    connection.query(sql, (err, results) => {
+        if (err) throw err;
+        console.log(results[0])
+        res.render('verIMG', { imagenes: results[0].foto });
+    });
+};
+
 
 
 const renderRegister = (req, res) => {
@@ -88,11 +102,12 @@ const renderProfile = (req, res) => {
 
 module.exports = {
     renderIndex,
-    renderNewEntry,
+    renderFile,
     renderLogin,
     renderComprar,
     renderArtistas,
     renderObras,
     renderRegister,
-    renderProfile
+    renderProfile,
+    renderIMG
 };
