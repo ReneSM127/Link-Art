@@ -25,22 +25,33 @@ const renderComprar = (req, res) => {
 };
 
 const renderArtistas = (req, res) => {
-    const query = 'SELECT nombreUsuario, correo FROM usuarios'; // Consulta para un dato específico
+    const query1 = 'SELECT nombreUsuario, correo FROM usuarios LIMIT 9';
+    const query2 = 'SELECT * FROM usuarios WHERE FIND_IN_SET("pintor", categoria) > 0 LIMIT 9';
 
-    connection.query(query, (err, results) => {
+    // Ejecutar la primera consulta
+    connection.query(query1, (err, results1) => {
         if (err) {
-            console.error('Error en la consulta:', err);
+            console.error('Error en la consulta 1:', err);
             return res.status(500).send('Error al obtener datos');
         }
 
-        if (results.length === 0) {
-            return res.status(404).send('No se encontraron resultados');
+        if (results1.length === 0) {
+            return res.status(404).send('No se encontraron resultados para la consulta 1');
         }
 
-        // Pasa los datos necesarios, incluyendo 'currentPage'
-        res.render('artist', {
-            currentPage: 'artist',
-            dato: results
+        // Ejecutar la segunda consulta después de que la primera haya finalizado
+        connection.query(query2, (err, results2) => {
+            if (err) {
+                console.error('Error en la consulta 2:', err);
+                return res.status(500).send('Error al obtener datos');
+            }
+
+            // Pasa los datos necesarios, incluyendo ambos resultados
+            res.render('artist', {
+                currentPage: 'artist',
+                dato: results1,   // Resultados de la primera consulta
+                pintores: results2 // Resultados de la segunda consulta
+            });
         });
     });
 };
