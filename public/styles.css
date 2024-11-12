@@ -100,3 +100,12 @@
   }
 }
 
+.username{
+  text-align: end;
+  align-items: end;
+}
+
+.text{
+  color: white;
+  display: block;
+}
