@@ -13,7 +13,7 @@ después añadimos "renderUsuario," en la parte de module.exports
 /*  añadan ,{ currentPage: 'nombrePagina' } */
 
 const renderIndex = (req, res) => {
-    res.render('index', { currentPage: 'index' });
+    res.render('index', { currentPage: 'index', username: req.session.username });
 };
 
 const renderLogin = (req, res) => {

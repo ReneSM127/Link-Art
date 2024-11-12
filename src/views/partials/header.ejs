@@ -102,8 +102,13 @@
             </ul>
           </div>
         </div>
-        <a href="/register" class="register-button">Registrarse</a>
-        <a href="/login" class="loggin-button">Iniciar Sesion</a>
+        <% if (username) { %>
+          <p>Bienvenido, <%= username %>!</p>
+          <a href="/logout">Cerrar sesión</a>
+        <% } else { %>
+          <a href="/register" class="register-button">Registrarse</a>
+          <a href="/login" class="loggin-button">Iniciar Sesion</a>
+        <% } %>
         <button
           class="navbar-toggler pe-0"
           type="button"
