@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const router = Router();
-
 /*
 El enrutador sirve para cambiar entre paginas, el controlador es el encargado de la logica del cambio
 Para añadir uno es sencillo, primero agregan un nuevo archivo en la carpeta de views, por ejemplo "usuario.ejs"
@@ -21,11 +20,20 @@ const {
   renderComprar,
   renderArtistas,
   renderProfile,
+<<<<<<< HEAD:src/routes/entries.routes.js
   renderNewEntry,
   createUser,
   renderObras,
   renderRegister
 } = require("../controllers/entries.controller.js");
+=======
+  renderObras,
+  renderRegister,
+  renderFile,
+  renderIMG,
+  renderAllArtists
+} = require("../controllers/renderpages.js");
+>>>>>>> 435cae0b51ab41382b476192fbfd6f171eb3926a:src/routes/renderpages.js
 
 router.get("/", renderIndex);
 
@@ -38,10 +46,21 @@ router.get("/register", renderRegister);
 router.get("/artistas", renderArtistas);
 
 router.get("/obras", renderObras);
+<<<<<<< HEAD:src/routes/entries.routes.js
 router.get("/profile", renderProfile);
+=======
+>>>>>>> 435cae0b51ab41382b476192fbfd6f171eb3926a:src/routes/renderpages.js
 
-router.get("/new-entry", renderNewEntry);
+router.get("/file", renderFile);
 
+<<<<<<< HEAD:src/routes/entries.routes.js
 router.post("/auth", createUser);
+=======
+router.get("/profile/:nombreUsuario", renderProfile);
+
+router.get("/verIMG", renderIMG);
+
+router.get('/all-artists', renderAllArtists);
+>>>>>>> 435cae0b51ab41382b476192fbfd6f171eb3926a:src/routes/renderpages.js
 
 module.exports = router;
