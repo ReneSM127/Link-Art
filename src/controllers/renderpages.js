@@ -25,9 +25,15 @@ const renderComprar = (req, res) => {
 };
 
 const renderArtistas = (req, res) => {
-    const query1 = 'SELECT nombreUsuario, correo FROM usuarios LIMIT 9';
-    const query2 = 'SELECT * FROM usuarios WHERE FIND_IN_SET("pintor", categoria) > 0 LIMIT 9';
-
+    const query1 = 'SELECT nombreUsuario, correo, foto FROM usuarios LIMIT 9';
+    const query2 = 'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("pintor", categoria) > 0 LIMIT 25';
+    const query3 = 'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("musico", categoria) > 0 LIMIT 25';
+    const query4 = 'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("escultor", categoria) > 0 LIMIT 25';
+    const query5 = 'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("actor", categoria) > 0 LIMIT 25';
+    const query6 = 'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("fotografo", categoria) > 0 LIMIT 25';
+    const query7 = 'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("artesano", categoria) > 0 LIMIT 25';
+    const query8 = 'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("otro", categoria) > 0 LIMIT 25';
+    
     // Ejecutar la primera consulta
     connection.query(query1, (err, results1) => {
         if (err) {
@@ -46,12 +52,76 @@ const renderArtistas = (req, res) => {
                 return res.status(500).send('Error al obtener datos');
             }
 
-            // Pasa los datos necesarios, incluyendo ambos resultados
-            res.render('artist', {
-                currentPage: 'artist',
-                dato: results1,   // Resultados de la primera consulta
-                pintores: results2 // Resultados de la segunda consulta
+            connection.query(query3, (err, results3) => {
+                if (err) {
+                    console.error('Error en la consulta 3:', err);
+                    return res.status(500).send('Error al obtener datos');
+                }
+
+                connection.query(query4, (err, results4) => {
+                    if (err) {
+                        console.error('Error en la consulta 4:', err);
+                        return res.status(500).send('Error al obtener datos');
+                    }
+
+                    connection.query(query5, (err, results5) => {
+                        if (err) {
+                            console.error('Error en la consulta 5:', err);
+                            return res.status(500).send('Error al obtener datos');
+                        }
+
+                        connection.query(query6, (err, results6) => {
+                            if (err) {
+                                console.error('Error en la consulta 6:', err);
+                                return res.status(500).send('Error al obtener datos');
+                            }
+
+                            connection.query(query7, (err, results7) => {
+                                if (err) {
+                                    console.error('Error en la consulta 7:', err);
+                                    return res.status(500).send('Error al obtener datos');
+                                }
+
+                                connection.query(query8, (err, results8) => {
+                                    if (err) {
+                                        console.error('Error en la consulta 8:', err);
+                                        return res.status(500).send('Error al obtener datos');
+                                    }
+
+                                    // Pasa los datos necesarios, incluyendo ambos resultados
+                                    res.render('artist', {
+                                        currentPage: 'artist',
+                                        dato: results1,   // Resultados de la primera consulta
+                                        pintores: results2, // Resultados de la segunda consulta
+                                        musicos: results3, // Resultados de la tercera consulta
+                                        escultores: results4, // Resultados de la cuarta consulta
+                                        actores: results5, // Resultados de la quinta consulta
+                                        fotografos: results6, // Resultados de la sexta consulta
+                                        artesanos: results7, // Resultados de la septima consulta
+                                        otros: results8 // Resultados de la octaba consulta
+                                    });
+                                });
+                            });
+                        });    
+                    });
+                });
             });
+        });
+    });
+};
+
+const renderAllArtists = (req, res) => {
+    const query = 'SELECT * FROM usuarios'; // Ajusta la consulta según tu base de datos
+
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error('Error al obtener los artistas:', err);
+            return res.status(500).send('Error al obtener los datos');
+        }
+
+        res.render('allArtists', {
+            currentPage: 'allArtists',
+            artists: results
         });
     });
 };
@@ -109,5 +179,6 @@ module.exports = {
     renderObras,
     renderRegister,
     renderProfile,
-    renderIMG
+    renderIMG,
+    renderAllArtists
 };

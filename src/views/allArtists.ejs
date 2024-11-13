@@ -1,0 +1,40 @@
+<%- include ('partials/header')%>
+<link rel="stylesheet" href="/allArtists.css">
+<main class="bg-black">
+<br>
+  <div class="container">
+    <h1 class="text-center text-light">Biblioteca de Artistas</h1>
+    <br />
+    <div class="contBuscar">
+        <div class="buscar">
+            <input type="text" id="search" placeholder="Buscar Artistas ..." required />
+            <div class="btn">
+                <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>              
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row" id="artistList">
+      <% artists.forEach(artist => { %>
+      <div class="col-md-3 mb-4">
+        <div class="card">
+            <a href="/profile/<%= artist.nombreUsuario %>">
+          <img
+            src="<%= artist.foto %>"
+            class="card-img-top"
+            alt="<%= artist.nombreUsuario %>"
+          />
+        </a>
+          <div class="card-body">
+            <h5 class="card-title"><%= artist.nombreUsuario %></h5>
+            <p class="card-text"><%= artist.correo %></p>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+<script src="https://kit.fontawesome.com/577e4ce119.js" crossorigin="anonymous"></script>
+<script src="/allArtists.js"></script>
+</main>
+<%- include ('partials/footer')%>
