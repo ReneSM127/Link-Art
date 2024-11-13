@@ -26,3 +26,19 @@ document.addEventListener('DOMContentLoaded', function() {
       img.style.height = 'auto';
     });
 });
+
+function toggleFollow(button) {
+  if (button.classList.contains('btn-followed')) {
+    // Volver al estado original: "Seguir"
+    button.classList.remove('btn-followed');
+    button.innerHTML = '<i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir';
+    button.style.backgroundColor = ''; // Restaurar al color original
+    button.style.color = ''; // Restaurar al color original
+  } else {
+    // Cambiar al estado "Siguiendo"
+    button.classList.add('btn-followed');
+    button.innerHTML = '<i class="bi bi-check" style="margin-right: 5px;"></i> Siguiendo';
+    button.style.backgroundColor = '#0084ff'; // Cambiar el color al hacer clic
+    button.style.color = 'white'; // Cambiar el color del texto
+  }
+}

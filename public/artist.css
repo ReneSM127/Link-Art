@@ -93,3 +93,9 @@
   width: 210px; /* Cambia este valor según lo que necesites */
   height: 350px;
 }
+
+.btn-followed {
+  background-color: #0084ff; /* Verde */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+}

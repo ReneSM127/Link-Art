@@ -1,5 +1,6 @@
 <%- include ('partials/header')%>
 <link rel="stylesheet" href="/artist.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 <main>
   <div class="bg-black">
     <section class="py-5 text-center container bg-black">
@@ -44,10 +45,15 @@
                         </a>
                       </div>
                       <div class="card-body bg-black">
-                        <p class="card-text text-light">
-                          <%= dato[j].nombreUsuario %> <br />
-                          <%= dato[j].correo %>
-                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="text-light">
+                            <p class="mb-1"><%= dato[j].nombreUsuario %></p>
+                            <p class="mb-1"><%= dato[j].correo %></p>
+                          </div>
+                          <button class="btn-follow btn-outline-light" style="border-radius: 20px;" onclick="toggleFollow(this)">
+                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -91,10 +97,15 @@
                         </a>
                       </div>
                       <div class="card-body bg-black">
-                        <p class="card-text text-light">
-                          <%= pintores[j].nombreUsuario %> <br />
-                          <%= pintores[j].correo %>
-                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="text-light">
+                            <p class="mb-1"><%= pintores[j].nombreUsuario %></p>
+                            <p class="mb-1"><%= pintores[j].correo %></p>
+                          </div>
+                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
+                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -138,10 +149,15 @@
                         </a>
                       </div>
                       <div class="card-body bg-black">
-                        <p class="card-text text-light">
-                          <%= musicos[j].nombreUsuario %> <br />
-                          <%= musicos[j].correo %>
-                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="text-light">
+                            <p class="mb-1"><%= musicos[j].nombreUsuario %></p>
+                            <p class="mb-1"><%= musicos[j].correo %></p>
+                          </div>
+                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
+                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -186,10 +202,15 @@
                         </a>
                       </div>
                       <div class="card-body bg-black">
-                        <p class="card-text text-light">
-                          <%= escultores[j].nombreUsuario %> <br />
-                          <%= escultores[j].correo %>
-                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="text-light">
+                            <p class="mb-1"><%= escultores[j].nombreUsuario %></p>
+                            <p class="mb-1"><%= escultores[j].correo %></p>
+                          </div>
+                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
+                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -234,10 +255,15 @@
                         </a>
                       </div>
                       <div class="card-body bg-black">
-                        <p class="card-text text-light">
-                          <%= actores[j].nombreUsuario %> <br />
-                          <%= actores[j].correo %>
-                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="text-light">
+                            <p class="mb-1"><%= actores[j].nombreUsuario %></p>
+                            <p class="mb-1"><%= actores[j].correo %></p>
+                          </div>
+                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
+                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -282,10 +308,15 @@
                         </a>
                       </div>
                       <div class="card-body bg-black">
-                        <p class="card-text text-light">
-                          <%= fotografos[j].nombreUsuario %> <br />
-                          <%= fotografos[j].correo %>
-                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="text-light">
+                            <p class="mb-1"><%= fotografos[j].nombreUsuario %></p>
+                            <p class="mb-1"><%= fotografos[j].correo %></p>
+                          </div>
+                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
+                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -330,10 +361,15 @@
                         </a>
                       </div>
                       <div class="card-body bg-black">
-                        <p class="card-text text-light">
-                          <%= artesanos[j].nombreUsuario %> <br />
-                          <%= artesanos[j].correo %>
-                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="text-light">
+                            <p class="mb-1"><%= artesanos[j].nombreUsuario %></p>
+                            <p class="mb-1"><%= artesanos[j].correo %></p>
+                          </div>
+                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
+                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -378,10 +414,15 @@
                         </a>
                       </div>
                       <div class="card-body bg-black">
-                        <p class="card-text text-light">
-                          <%= otros[j].nombreUsuario %> <br />
-                          <%= otros[j].correo %>
-                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="text-light">
+                            <p class="mb-1"><%= otros[j].nombreUsuario %></p>
+                            <p class="mb-1"><%= otros[j].correo %></p>
+                          </div>
+                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
+                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

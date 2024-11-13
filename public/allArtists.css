@@ -61,3 +61,9 @@
     width: 100%; /* Ajusta el tamaño según lo necesites */
     max-width: 250px; /* Tamaño máximo de la tarjeta */
 }
+
+.btn-followed {
+  background-color: #0084ff; /* Verde */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+}
