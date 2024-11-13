@@ -1,0 +1,146 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa;
+}
+.profile-container {
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.profile-header {
+   display: flex;
+    justify-content: space-between;
+   align-items: center;
+}
+.profile-header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+.profile-info {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+.profile-info h1 {
+    font-size: 28px;
+    margin: 0;
+}
+.profile-info p {
+    margin: 5px 0;
+    color: #666;
+}
+.stats {
+    display: flex;
+    justify-content: space-between;
+     width: 60%;
+}
+.stats div {
+    text-align: center;
+}
+.stats div strong {
+    display: block;
+    font-size: 18px;
+}
+.profile-bio {
+    margin-top: 20px;
+}
+.profile-bio p {
+   color: #333;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-top: 20px;
+}
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.edit-profile-btn{
+    border: none;
+    background: none;
+}
+
+/* Estilos para la ventana modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    overflow: hidden; /* Evita el scroll */
+}
+
+/* Estilos para el contenido del modal */
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* Ajusta el centrado vertical */
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+    max-height: 80%; /* Asegura que el contenido no sobrepase el 80% de la ventana */
+    overflow: hidden; /* Desactiva el scroll dentro del modal */
+    position: relative;
+}
+
+.close {
+    color: #000000;
+    position: absolute; /* Para posicionar la X en la esquina */
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(255, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input[type=text], select {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea{
+    width: 50%;
+    height: 100px;
+    resize: none;
+}
+
+.modal-content form {
+    display: flex; /* Usar flexbox en el formulario */
+    flex-direction: column; /* Alinear los elementos en una columna */
+    align-items: center; /* Centrar los elementos horizontalmente */
+}
+
+.modal-content button[type="submit"] {
+    font-size: 16px; /* Tamaño de la fuente */
+    color: white; /* Color del texto */
+    background-color: #000000; /* Color de fondo */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #00000035; /* Color de fondo en hover */
+}

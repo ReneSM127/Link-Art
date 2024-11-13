@@ -57,11 +57,23 @@ const login = (req, res) => {
     if (!checkPassword)
       return res.status(404).json("wrong password or username");
 
+    req.session.userId = data[0].id; // Guarda el ID del usuario en la sesión
+    req.session.username = data[0].nombreUsuario; // Guarda el nombre de usuario en la sesión
     res.redirect("/");
+  });
+};
+
+const logout = (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.status(500).send("No se pudo cerrar la sesión");
+    }
+    res.redirect("/"); // Redirige al usuario después de cerrar sesión
   });
 };
 
 module.exports = {
   createUser,
   login,
+  logout
 };
