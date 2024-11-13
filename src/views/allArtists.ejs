@@ -1,0 +1,55 @@
+<%- include ('partials/header')%>
+<link rel="stylesheet" href="/allArtists.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+<main class="bg-black">
+<br>
+  <div class="container">
+    <h1 class="text-center text-light">Biblioteca de Artistas</h1>
+    <br />
+    <div class="contBuscar">
+      <div class="buscar">
+        <input type="text" id="search" placeholder="Buscar Artistas ..." oninput="filterArtists()" required />
+        <div class="btn">
+          <i class="fa-solid fa-magnifying-glass" style="color: #000000;"></i>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div class="row" id="artistList">
+      <% artists.forEach(artist => { %>
+      <div class="col-md-3 mb-4">
+        <div class="card">
+            <a href="/profile/<%= artist.nombreUsuario %>">
+          <img
+            src="<%= artist.foto %>"
+            class="card-img-top"
+            alt="<%= artist.nombreUsuario %>"
+          />
+        </a>
+        <div class="card-body">
+          <div class="d-flex flex-column justify-content-between h-100">
+            <div>
+              <p class="mb-1"><%= artist.nombreUsuario %></p>
+              <p class="mb-1"><%= artist.correo %></p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-auto">
+          <button class="btn-follow btn-outline-light" 
+                  style="border-radius: 20px; font-size: 18px; 
+                        padding: auto;
+                        height: 40px;" 
+                  onclick="toggleFollow(this)">
+            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
+          </button>
+        </div>
+        <br>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+<script src="https://kit.fontawesome.com/577e4ce119.js" crossorigin="anonymous"></script>
+<script src="/allArtists.js"></script>
+</main>
+<%- include ('partials/footer')%>

@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #000000;
+  color: white;
+  height: 100vh;
+  display: flex;
+}
+.wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+.form-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+.form-content {
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+}
+h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+label {
+  font-size: 17px;
+  margin-left: 5px;
+}
+.btn {
+  width: 100%;
+  padding: 14px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+.image-container {
+  width: 50%;
+  background: url("https://i.pinimg.com/564x/83/68/de/8368de5102b554118b291592d4e990dd.jpg")
+    no-repeat center center/cover;
+  box-shadow: inset -10px 0px 20px 5px rgba(0, 0, 0, 0.7);
+}
