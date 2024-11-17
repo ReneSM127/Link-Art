@@ -13,15 +13,15 @@ después añadimos "renderUsuario," en la parte de module.exports
 /*  añadan ,{ currentPage: 'nombrePagina' } */
 
 const renderIndex = (req, res) => {
-    res.render('index', { currentPage: 'index' });
+    res.render('index', { currentPage: 'index', username: req.session.username });
 };
 
 const renderLogin = (req, res) => {
-    res.render('login', { currentPage: 'login' });
+    res.render('login', { currentPage: 'login', username: req.session.username });
 };
 
 const renderComprar = (req, res) => {
-    res.render('comprar', { currentPage: 'comprar' });
+    res.render('comprar', { currentPage: 'comprar', username: req.session.username });
 };
 
 const renderArtistas = (req, res) => {
@@ -98,7 +98,8 @@ const renderArtistas = (req, res) => {
                                         actores: results5, // Resultados de la quinta consulta
                                         fotografos: results6, // Resultados de la sexta consulta
                                         artesanos: results7, // Resultados de la septima consulta
-                                        otros: results8 // Resultados de la octaba consulta
+                                        otros: results8, // Resultados de la octaba consulta
+                                        username: req.session.username
                                     });
                                 });
                             });
@@ -121,13 +122,14 @@ const renderAllArtists = (req, res) => {
 
         res.render('allArtists', {
             currentPage: 'allArtists',
-            artists: results
+            artists: results,
+            username: req.session.username
         });
     });
 };
 
 const renderObras = (req, res) => {
-    res.render('obras', { currentPage: 'obras' });
+    res.render('obras', { currentPage: 'obras', username: req.session.username });
 };
 
 
@@ -166,7 +168,7 @@ const renderProfile = (req, res) => {
         }
 
         // Renderiza la vista y pasa los datos del usuario y la variable currentPage
-        res.render('profile', { currentPage: 'profile', user: results[0] });
+        res.render('profile', { currentPage: 'profile', user: results[0] , username: req.session.username});
     });
 };
 
