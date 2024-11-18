@@ -23,12 +23,17 @@ const upload = multer({
 });
 const pathname = (req, res) => {
   //aqui se inserta la dirección para buscar la imagen
-  const imagePath = `uploads/${req.file.filename}`;
-  q = "UPDATE usuarios SET foto = (?) WHERE id = 1"; //<- CUIDADO, de momento solo actualiza el id 1, en el futuro buscara el id del usuario logeado
-  connection.query(q, [imagePath], (err, data) => {
+  //const imagePath = `uploads/${req.file.filename}`;
+  const q = "INSERT INTO publicaciones (idUsuarios, fecha, imagen) VALUES (?)"; //<- CUIDADO, de momento solo actualiza el id 1, en el futuro buscara el id del usuario logeado
+  const VALUES = [
+    userId = req.session.userId,
+    fecha = new Date().toISOString().slice(0, 19).replace('T', ' '),
+    imagen = "/uploads/default.jpg", // Extrae el nombre de usuario de la URL
+  ];
+  connection.query(q, [VALUES], (err, data) => {
     if (err) return res.status(500).json(err);
 
-    res.redirect("/");
+    res.redirect("/profile");
   });
 };
 /*
@@ -37,5 +42,5 @@ const pathname = (req, res) => {
 module.exports = {
   storage,
   upload,
-  pathname
+  pathname,
 };

@@ -101,11 +101,12 @@
 }
 
 .username{
-  text-align: end;
-  align-items: end;
+  text-align: center;
+  align-items: center;
 }
 
-.text{
-  color: white;
+.user{
+  text-align: center;
   display: block;
+  align-items: center;
 }

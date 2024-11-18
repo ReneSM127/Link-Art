@@ -105,7 +105,7 @@
         <!--CUANDO LA PANTALLA ES GRANDE-->
         <% if (username) { %>
         <div class="username d-none d-lg-flex">
-          <p class ="text"><%= username %></p>
+          <a class="user" href="/profile" ><%= username %></a>
           <a class="loggin-button" href="/logout">Cerrar sesión</a>
         </div>
         <% } else { %>
