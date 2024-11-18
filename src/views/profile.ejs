@@ -3,9 +3,9 @@
 <body>
     <div class="profile-container">
         <header class="profile-header">
-            <img src="https://imgs.search.brave.com/4hp_G5R6bLgiOsjx-Yne4WvoIAVI9gK7iwnJH-w4KrQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxNy8x/MS8xMC8wNS80OC91/c2VyLTI5MzU1Mjdf/NjQwLnBuZw" alt="Foto de perfil">
+            <img src="<%= user.foto %>" alt="Foto de perfil">
             <div class="profile-info">
-                <h1>Nombre de Usuario</h1>
+                <h1><%= user.nombre %> <%= user.apellidos %></h1> <!-- Muestra el nombre de usuario -->
                 <div class="stats">
                     <div>
                         <strong>50</strong>
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="profile-bio">
-                    <p>Biografía del usuario. Aquí puedes escribir una breve descripción sobre ti.</p>
+                    <p><%= user.descripcion %></p>
                 </div>
             </div>
         </header>

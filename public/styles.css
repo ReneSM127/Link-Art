@@ -100,3 +100,13 @@
   }
 }
 
+.username{
+  text-align: center;
+  align-items: center;
+}
+
+.user{
+  text-align: center;
+  display: block;
+  align-items: center;
+}
