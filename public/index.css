@@ -78,5 +78,17 @@ h2{
 
 
 .Venta{
-  background-color: aqua;
+  background-color: #292929;
+}
+
+
+.imagen2{
+  cursor: pointer;
+  transition: transform 0.4s ease-in-out;
+}
+
+.imagen2:hover{
+  transform: translateX(
+      50%
+    );
 }
