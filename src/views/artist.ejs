@@ -1,17 +1,17 @@
 <%- include ('partials/header')%>
 <link rel="stylesheet" href="/artist.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-<main>
-  <div class="bg-black">
-    <section class="py-5 text-center container bg-black">
+<main class="bg-black">
+  <div>
+    <section class="py-5 text-center container">
       <div class="row py-lg-5 mask1">
         <div class="col-lg-6 col-md-8 mx-auto">
           <h1 class="p-3 text-light shadow">Artistas</h1>
-          <h5 class="font-weight-bold text-light shadow">
+          <p class="font-weight-bold text-light shadow" style="font-size: 130%;">
             El arte no solo se crea con las manos, sino con el corazón y la
             mente. Cada artista es un viajero en un mundo de emociones, y
             conocer su obra es descubrir un pedazo de su alma.
-          </h5>
+          </p>
           <br />
           <br />
           <br />
@@ -25,7 +25,7 @@
 
     <!-- Destacados -->
     <div class="Destacados">
-      <section class="py-5 text-center container bg-black">
+      <section class="py-5 text-center container">
         <h2 class="text-light font-weight-bold" style="position: absolute; left: 9.5%">
           Artistas Destacados
         </h2>
@@ -38,7 +38,7 @@
               <div class="row justify-content-center">
                 <% for (let j = i; j < i + 3 && j < dato.length; j++) { %>
                   <div class="col-4" style="max-width: 420px;">
-                    <div class="card shadow-sm bg-black">
+                    <div class="card shadow-sm">
                       <div class="card-img-top">
                         <a href="/profile/<%= dato[j].nombreUsuario %>">
                           <img src="<%= dato[j].foto %>" class="img-fluid rounded float" alt="Foto" />
@@ -77,7 +77,7 @@
     
     <!-- Pintores -->
     <div class="Pintores">
-      <section class="py-5 text-center container bg-black">
+      <section class="py-5 text-center container ">
         <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
           Pintores
         </h2>
@@ -90,7 +90,7 @@
               <div class="row justify-content-center">
                 <% for (let j = i; j < i + 5 && j < pintores.length; j++) { %>
                   <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm bg-black">
+                    <div class="card shadow-sm ">
                       <div class="card-img-top">
                         <a href="/profile/<%= pintores[j].nombreUsuario %>">
                           <img src="<%= pintores[j].foto %>" class="img-fluid rounded float" alt="Foto" />
@@ -129,7 +129,7 @@
     
     <!-- Musicos -->
     <div class="Musicos">
-      <section class="py-5 text-center container bg-black">
+      <section class="py-5 text-center container ">
         <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
           Musicos
         </h2>
@@ -142,7 +142,7 @@
               <div class="row justify-content-center">
                 <% for (let j = i; j < i + 5 && j < musicos.length; j++) { %>
                   <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm bg-black">
+                    <div class="card shadow-sm ">
                       <div class="card-img-top">
                         <a href="/profile/<%= musicos[j].nombreUsuario %>">
                           <img src="<%= musicos[j].foto %>" class="img-fluid rounded float" alt="Foto" />
@@ -182,7 +182,7 @@
 
     <!-- Escultores -->
     <div class="Escultores">
-      <section class="py-5 text-center container bg-black">
+      <section class="py-5 text-center container ">
         <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
           Escultores
         </h2>
@@ -195,7 +195,7 @@
               <div class="row justify-content-center">
                 <% for (let j = i; j < i + 5 && j < escultores.length; j++) { %>
                   <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm bg-black">
+                    <div class="card shadow-sm ">
                       <div class="card-img-top">
                         <a href="/profile/<%= escultores[j].nombreUsuario %>">
                           <img src="<%= escultores[j].foto %>" class="img-fluid rounded float" alt="Foto" />
@@ -235,7 +235,7 @@
 
     <!-- Actores -->
     <div class="Actores">
-      <section class="py-5 text-center container bg-black">
+      <section class="py-5 text-center container ">
         <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
           Actores
         </h2>
@@ -248,7 +248,7 @@
               <div class="row justify-content-center">
                 <% for (let j = i; j < i + 5 && j < actores.length; j++) { %>
                   <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm bg-black">
+                    <div class="card shadow-sm ">
                       <div class="card-img-top">
                         <a href="/profile/<%= actores[j].nombreUsuario %>">
                           <img src="<%= actores[j].foto %>" class="img-fluid rounded float" alt="Foto" />
@@ -288,7 +288,7 @@
 
     <!-- Fotografos -->
     <div class="Fotografos">
-      <section class="py-5 text-center container bg-black">
+      <section class="py-5 text-center container ">
         <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
           Fotografos
         </h2>
@@ -301,7 +301,7 @@
               <div class="row justify-content-center">
                 <% for (let j = i; j < i + 5 && j < fotografos.length; j++) { %>
                   <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm bg-black">
+                    <div class="card shadow-sm ">
                       <div class="card-img-top">
                         <a href="/profile/<%= fotografos[j].nombreUsuario %>">
                           <img src="<%= fotografos[j].foto %>" class="img-fluid rounded float" alt="Foto" />
@@ -341,7 +341,7 @@
 
     <!-- Artesanos -->
     <div class="Artesanos">
-      <section class="py-5 text-center container bg-black">
+      <section class="py-5 text-center container ">
         <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
           Artesanos
         </h2>
@@ -354,7 +354,7 @@
               <div class="row justify-content-center">
                 <% for (let j = i; j < i + 5 && j < artesanos.length; j++) { %>
                   <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm bg-black">
+                    <div class="card shadow-sm ">
                       <div class="card-img-top">
                         <a href="/profile/<%= artesanos[j].nombreUsuario %>">
                           <img src="<%= artesanos[j].foto %>" class="img-fluid rounded float" alt="Foto" />
@@ -394,7 +394,7 @@
 
     <!-- Otros -->
     <div class="Otros">
-      <section class="py-5 text-center container bg-black">
+      <section class="py-5 text-center container ">
         <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
           Otros
         </h2>
@@ -407,7 +407,7 @@
               <div class="row justify-content-center">
                 <% for (let j = i; j < i + 5 && j < otros.length; j++) { %>
                   <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm bg-black">
+                    <div class="card shadow-sm ">
                       <div class="card-img-top">
                         <a href="/profile/<%= otros[j].nombreUsuario %>">
                           <img src="<%= otros[j].foto %>" class="img-fluid rounded float" alt="Foto" />
