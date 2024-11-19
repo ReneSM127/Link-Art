@@ -1,5 +1,6 @@
 const connection = require("../db");
 const bcrypt = require("bcryptjs");
+const util = require('util'); // Importar util para promisify
 /*
 Para añadir una funcion de renderizado de por ejemplo usuarios.ejs, copiaremos las lineas cambiando el nombre
 const renderUsuario = (req, res) => {
@@ -27,100 +28,43 @@ const renderComprar = (req, res) => {
   });
 };
 
-const renderArtistas = (req, res) => {
-  const query1 = "SELECT nombreUsuario, correo, foto FROM usuarios LIMIT 9";
-  const query2 =
-    'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("pintor", categoria) > 0 LIMIT 25';
-  const query3 =
-    'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("musico", categoria) > 0 LIMIT 25';
-  const query4 =
-    'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("escultor", categoria) > 0 LIMIT 25';
-  const query5 =
-    'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("actor", categoria) > 0 LIMIT 25';
-  const query6 =
-    'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("fotografo", categoria) > 0 LIMIT 25';
-  const query7 =
-    'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("artesano", categoria) > 0 LIMIT 25';
-  const query8 =
-    'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("otro", categoria) > 0 LIMIT 25';
+const renderArtistas = async (req, res) => {
+    // Consultas SQL
+    const queries = [
+        'SELECT nombreUsuario, correo, foto FROM usuarios LIMIT 9',
+        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("pintor", categoria) > 0 LIMIT 25',
+        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("musico", categoria) > 0 LIMIT 25',
+        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("escultor", categoria) > 0 LIMIT 25',
+        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("actor", categoria) > 0 LIMIT 25',
+        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("fotografo", categoria) > 0 LIMIT 25',
+        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("artesano", categoria) > 0 LIMIT 25',
+        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("otro", categoria) > 0 LIMIT 25',
+    ];
 
-  // Ejecutar la primera consulta
-  connection.query(query1, (err, results1) => {
-    if (err) {
-      console.error("Error en la consulta 1:", err);
-      return res.status(500).send("Error al obtener datos");
-    }
+    try {
+        // Convertir connection.query a promesa
+        const query = util.promisify(connection.query).bind(connection);
 
-    if (results1.length === 0) {
-      return res
-        .status(404)
-        .send("No se encontraron resultados para la consulta 1");
-    }
+        // Ejecutar todas las consultas en paralelo
+        const results = await Promise.all(queries.map(q => query(q)));
 
-    // Ejecutar la segunda consulta después de que la primera haya finalizado
-    connection.query(query2, (err, results2) => {
-      if (err) {
-        console.error("Error en la consulta 2:", err);
-        return res.status(500).send("Error al obtener datos");
-      }
-
-      connection.query(query3, (err, results3) => {
-        if (err) {
-          console.error("Error en la consulta 3:", err);
-          return res.status(500).send("Error al obtener datos");
-        }
-
-        connection.query(query4, (err, results4) => {
-          if (err) {
-            console.error("Error en la consulta 4:", err);
-            return res.status(500).send("Error al obtener datos");
-          }
-
-          connection.query(query5, (err, results5) => {
-            if (err) {
-              console.error("Error en la consulta 5:", err);
-              return res.status(500).send("Error al obtener datos");
-            }
-
-            connection.query(query6, (err, results6) => {
-              if (err) {
-                console.error("Error en la consulta 6:", err);
-                return res.status(500).send("Error al obtener datos");
-              }
-
-              connection.query(query7, (err, results7) => {
-                if (err) {
-                  console.error("Error en la consulta 7:", err);
-                  return res.status(500).send("Error al obtener datos");
-                }
-
-                connection.query(query8, (err, results8) => {
-                  if (err) {
-                    console.error("Error en la consulta 8:", err);
-                    return res.status(500).send("Error al obtener datos");
-                  }
-
-                  // Pasa los datos necesarios, incluyendo ambos resultados
-                  res.render("artist", {
-                    currentPage: "artist",
-                    dato: results1, // Resultados de la primera consulta
-                    pintores: results2, // Resultados de la segunda consulta
-                    musicos: results3, // Resultados de la tercera consulta
-                    escultores: results4, // Resultados de la cuarta consulta
-                    actores: results5, // Resultados de la quinta consulta
-                    fotografos: results6, // Resultados de la sexta consulta
-                    artesanos: results7, // Resultados de la septima consulta
-                    otros: results8, // Resultados de la octaba consulta
-                    username: req.session.username,
-                  });
-                });
-              });
-            });
-          });
+        // Renderizar la vista con los resultados
+        res.render('artist', {
+            currentPage: 'artist',
+            dato: results[0],      // Resultados de la primera consulta
+            pintores: results[1],  // Resultados de la segunda consulta
+            musicos: results[2],   // Resultados de la tercera consulta
+            escultores: results[3],// Resultados de la cuarta consulta
+            actores: results[4],   // Resultados de la quinta consulta
+            fotografos: results[5],// Resultados de la sexta consulta
+            artesanos: results[6], // Resultados de la séptima consulta
+            otros: results[7],      // Resultados de la octava consulta
+            username: req.session.username
         });
-      });
-    });
-  });
+    } catch (err) {
+        console.error('Error al obtener datos:', err);
+        res.status(500).send('Error al obtener datos');
+    }
 };
 
 const renderAllArtists = (req, res) => {
