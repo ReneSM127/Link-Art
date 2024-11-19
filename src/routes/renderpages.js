@@ -23,8 +23,7 @@ const {
   renderObras,
   renderRegister,
   renderFile,
-  renderIMG,
-  renderAllArtists
+  renderIMG
 } = require("../controllers/renderpages.js");
 
 router.get("/", renderIndex);
@@ -44,7 +43,5 @@ router.get("/file", renderFile);
 router.get("/profile/:nombreUsuario", renderProfile);
 
 router.get("/verIMG", renderIMG);
-
-router.get('/all-artists', renderAllArtists);
 
 module.exports = router;

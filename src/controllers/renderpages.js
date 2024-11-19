@@ -1,6 +1,5 @@
 const connection = require("../db")
 const bcrypt = require("bcryptjs");
-const util = require('util'); // Importar util para promisify
 /*
 Para añadir una funcion de renderizado de por ejemplo usuarios.ejs, copiaremos las lineas cambiando el nombre
 const renderUsuario = (req, res) => {
@@ -25,56 +24,34 @@ const renderComprar = (req, res) => {
     res.render('comprar', { currentPage: 'comprar' });
 };
 
-const renderArtistas = async (req, res) => {
-    // Consultas SQL
-    const queries = [
-        'SELECT nombreUsuario, correo, foto FROM usuarios LIMIT 9',
-        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("pintor", categoria) > 0 LIMIT 25',
-        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("musico", categoria) > 0 LIMIT 25',
-        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("escultor", categoria) > 0 LIMIT 25',
-        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("actor", categoria) > 0 LIMIT 25',
-        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("fotografo", categoria) > 0 LIMIT 25',
-        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("artesano", categoria) > 0 LIMIT 25',
-        'SELECT nombreUsuario, correo, foto FROM usuarios WHERE FIND_IN_SET("otro", categoria) > 0 LIMIT 25',
-    ];
+const renderArtistas = (req, res) => {
+    const query1 = 'SELECT nombreUsuario, correo FROM usuarios LIMIT 9';
+    const query2 = 'SELECT * FROM usuarios WHERE FIND_IN_SET("pintor", categoria) > 0 LIMIT 9';
 
-    try {
-        // Convertir connection.query a promesa
-        const query = util.promisify(connection.query).bind(connection);
-
-        // Ejecutar todas las consultas en paralelo
-        const results = await Promise.all(queries.map(q => query(q)));
-
-        // Renderizar la vista con los resultados
-        res.render('artist', {
-            currentPage: 'artist',
-            dato: results[0],      // Resultados de la primera consulta
-            pintores: results[1],  // Resultados de la segunda consulta
-            musicos: results[2],   // Resultados de la tercera consulta
-            escultores: results[3],// Resultados de la cuarta consulta
-            actores: results[4],   // Resultados de la quinta consulta
-            fotografos: results[5],// Resultados de la sexta consulta
-            artesanos: results[6], // Resultados de la séptima consulta
-            otros: results[7]      // Resultados de la octava consulta
-        });
-    } catch (err) {
-        console.error('Error al obtener datos:', err);
-        res.status(500).send('Error al obtener datos');
-    }
-};
-
-const renderAllArtists = (req, res) => {
-    const query = 'SELECT * FROM usuarios'; // Ajusta la consulta según tu base de datos
-
-    connection.query(query, (err, results) => {
+    // Ejecutar la primera consulta
+    connection.query(query1, (err, results1) => {
         if (err) {
-            console.error('Error al obtener los artistas:', err);
-            return res.status(500).send('Error al obtener los datos');
+            console.error('Error en la consulta 1:', err);
+            return res.status(500).send('Error al obtener datos');
         }
 
-        res.render('allArtists', {
-            currentPage: 'allArtists',
-            artists: results
+        if (results1.length === 0) {
+            return res.status(404).send('No se encontraron resultados para la consulta 1');
+        }
+
+        // Ejecutar la segunda consulta después de que la primera haya finalizado
+        connection.query(query2, (err, results2) => {
+            if (err) {
+                console.error('Error en la consulta 2:', err);
+                return res.status(500).send('Error al obtener datos');
+            }
+
+            // Pasa los datos necesarios, incluyendo ambos resultados
+            res.render('artist', {
+                currentPage: 'artist',
+                dato: results1,   // Resultados de la primera consulta
+                pintores: results2 // Resultados de la segunda consulta
+            });
         });
     });
 };
@@ -132,6 +109,5 @@ module.exports = {
     renderObras,
     renderRegister,
     renderProfile,
-    renderIMG,
-    renderAllArtists
+    renderIMG
 };

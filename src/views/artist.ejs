@@ -1,32 +1,27 @@
 <%- include ('partials/header')%>
 <link rel="stylesheet" href="/artist.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-<main class="bg-black">
-  <div>
-    <section class="py-5 text-center container">
+<main>
+  <div class="bg-black">
+    <section class="py-5 text-center container bg-black">
       <div class="row py-lg-5 mask1">
         <div class="col-lg-6 col-md-8 mx-auto">
           <h1 class="p-3 text-light shadow">Artistas</h1>
-          <p class="font-weight-bold text-light shadow" style="font-size: 130%;">
+          <h5 class="font-weight-bold text-light shadow">
             El arte no solo se crea con las manos, sino con el corazón y la
             mente. Cada artista es un viajero en un mundo de emociones, y
             conocer su obra es descubrir un pedazo de su alma.
-          </p>
+          </h5>
           <br />
           <br />
           <br />
-          
-          <!-- Agregar el enlace para ver todos los artistas -->
-          <a href="/all-artists" class="btn">Ver todos los artistas</a>
-          
         </div>
       </div>
     </section>
 
-    <!-- Destacados -->
+
     <div class="Destacados">
-      <section class="py-5 text-center container">
-        <h2 class="text-light font-weight-bold" style="position: absolute; left: 9.5%">
+      <section class="py-5 text-center container bg-black">
+        <h2 class="text-light font-weight-bold" style="position: absolute; left: 4%">
           Artistas Destacados
         </h2>
       </section>
@@ -35,25 +30,20 @@
           <% let carouselIndexDestacados = 0; %>
           <% for (let i = 0; i < dato.length; i += 3) { %>
             <div class="carousel-item <%= carouselIndexDestacados === 0 ? 'active' : '' %>">
-              <div class="row justify-content-center">
+              <div class="row">
                 <% for (let j = i; j < i + 3 && j < dato.length; j++) { %>
-                  <div class="col-4" style="max-width: 420px;">
-                    <div class="card shadow-sm">
+                  <div class="col-4">
+                    <div class="card shadow-sm bg-black">
                       <div class="card-img-top">
                         <a href="/profile/<%= dato[j].nombreUsuario %>">
                           <img src="<%= dato[j].foto %>" class="img-fluid rounded float" alt="Foto" />
                         </a>
                       </div>
                       <div class="card-body bg-black">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="text-light">
-                            <p class="mb-1"><%= dato[j].nombreUsuario %></p>
-                            <p class="mb-1"><%= dato[j].correo %></p>
-                          </div>
-                          <button class="btn-follow btn-outline-light" style="border-radius: 20px;" onclick="toggleFollow(this)">
-                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
-                          </button>
-                        </div>
+                        <p class="card-text text-light">
+                          <%= dato[j].nombreUsuario %> <br />
+                          <%= dato[j].correo %>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -75,37 +65,32 @@
       </div>
     </div>
     
-    <!-- Pintores -->
+
     <div class="Pintores">
-      <section class="py-5 text-center container ">
-        <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
+      <section class="py-5 text-center container bg-black">
+        <h2 class="text-light font-weight-bold" style="position: absolute; left: 4%">
           Pintores
         </h2>
       </section>
       <div id="Pintores" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <% let carouselIndexPintores = 0; %>
-          <% for (let i = 0; i < pintores.length; i += 5) { %>
+          <% for (let i = 0; i < pintores.length; i += 3) { %>
             <div class="carousel-item <%= carouselIndexPintores === 0 ? 'active' : '' %>">
-              <div class="row justify-content-center">
-                <% for (let j = i; j < i + 5 && j < pintores.length; j++) { %>
-                  <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm ">
+              <div class="row">
+                <% for (let j = i; j < i + 3 && j < pintores.length; j++) { %>
+                  <div class="col-4">
+                    <div class="card shadow-sm bg-black">
                       <div class="card-img-top">
                         <a href="/profile/<%= pintores[j].nombreUsuario %>">
                           <img src="<%= pintores[j].foto %>" class="img-fluid rounded float" alt="Foto" />
                         </a>
                       </div>
                       <div class="card-body bg-black">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="text-light">
-                            <p class="mb-1"><%= pintores[j].nombreUsuario %></p>
-                            <p class="mb-1"><%= pintores[j].correo %></p>
-                          </div>
-                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
-                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
-                          </button>
-                        </div>
+                        <p class="card-text text-light">
+                          <%= pintores[j].nombreUsuario %> <br />
+                          <%= pintores[j].correo %>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -127,324 +112,7 @@
       </div>
     </div>
     
-    <!-- Musicos -->
-    <div class="Musicos">
-      <section class="py-5 text-center container ">
-        <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
-          Musicos
-        </h2>
-      </section>
-      <div id="Musicos" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <% let carouselIndexMusicos = 0; %>
-          <% for (let i = 0; i < musicos.length; i += 5) { %>
-            <div class="carousel-item <%= carouselIndexMusicos === 0 ? 'active' : '' %>">
-              <div class="row justify-content-center">
-                <% for (let j = i; j < i + 5 && j < musicos.length; j++) { %>
-                  <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm ">
-                      <div class="card-img-top">
-                        <a href="/profile/<%= musicos[j].nombreUsuario %>">
-                          <img src="<%= musicos[j].foto %>" class="img-fluid rounded float" alt="Foto" />
-                        </a>
-                      </div>
-                      <div class="card-body bg-black">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="text-light">
-                            <p class="mb-1"><%= musicos[j].nombreUsuario %></p>
-                            <p class="mb-1"><%= musicos[j].correo %></p>
-                          </div>
-                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
-                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% } %>
-              </div>
-            </div>
-            <% carouselIndexMusicos++; %>
-          <% } %>
-        </div>
-        <!-- Controles de navegación -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#Musicos" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#Musicos" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-
-
-    <!-- Escultores -->
-    <div class="Escultores">
-      <section class="py-5 text-center container ">
-        <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
-          Escultores
-        </h2>
-      </section>
-      <div id="Escultores" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <% let carouselIndexEscultores = 0; %>
-          <% for (let i = 0; i < escultores.length; i += 5) { %>
-            <div class="carousel-item <%= carouselIndexEscultores === 0 ? 'active' : '' %>">
-              <div class="row justify-content-center">
-                <% for (let j = i; j < i + 5 && j < escultores.length; j++) { %>
-                  <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm ">
-                      <div class="card-img-top">
-                        <a href="/profile/<%= escultores[j].nombreUsuario %>">
-                          <img src="<%= escultores[j].foto %>" class="img-fluid rounded float" alt="Foto" />
-                        </a>
-                      </div>
-                      <div class="card-body bg-black">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="text-light">
-                            <p class="mb-1"><%= escultores[j].nombreUsuario %></p>
-                            <p class="mb-1"><%= escultores[j].correo %></p>
-                          </div>
-                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
-                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% } %>
-              </div>
-            </div>
-            <% carouselIndexEscultores++; %>
-          <% } %>
-        </div>
-        <!-- Controles de navegación -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#Escultores" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#Escultores" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-
-
-    <!-- Actores -->
-    <div class="Actores">
-      <section class="py-5 text-center container ">
-        <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
-          Actores
-        </h2>
-      </section>
-      <div id="Actores" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <% let carouselIndexActores = 0; %>
-          <% for (let i = 0; i < actores.length; i += 5) { %>
-            <div class="carousel-item <%= carouselIndexActores === 0 ? 'active' : '' %>">
-              <div class="row justify-content-center">
-                <% for (let j = i; j < i + 5 && j < actores.length; j++) { %>
-                  <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm ">
-                      <div class="card-img-top">
-                        <a href="/profile/<%= actores[j].nombreUsuario %>">
-                          <img src="<%= actores[j].foto %>" class="img-fluid rounded float" alt="Foto" />
-                        </a>
-                      </div>
-                      <div class="card-body bg-black">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="text-light">
-                            <p class="mb-1"><%= actores[j].nombreUsuario %></p>
-                            <p class="mb-1"><%= actores[j].correo %></p>
-                          </div>
-                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
-                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% } %>
-              </div>
-            </div>
-            <% carouselIndexActores++; %>
-          <% } %>
-        </div>
-        <!-- Controles de navegación -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#Actores" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#Actores" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
     
-
-    <!-- Fotografos -->
-    <div class="Fotografos">
-      <section class="py-5 text-center container ">
-        <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
-          Fotografos
-        </h2>
-      </section>
-      <div id="Fotografos" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <% let carouselIndexFotografos = 0; %>
-          <% for (let i = 0; i < fotografos.length; i += 5) { %>
-            <div class="carousel-item <%= carouselIndexFotografos === 0 ? 'active' : '' %>">
-              <div class="row justify-content-center">
-                <% for (let j = i; j < i + 5 && j < fotografos.length; j++) { %>
-                  <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm ">
-                      <div class="card-img-top">
-                        <a href="/profile/<%= fotografos[j].nombreUsuario %>">
-                          <img src="<%= fotografos[j].foto %>" class="img-fluid rounded float" alt="Foto" />
-                        </a>
-                      </div>
-                      <div class="card-body bg-black">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="text-light">
-                            <p class="mb-1"><%= fotografos[j].nombreUsuario %></p>
-                            <p class="mb-1"><%= fotografos[j].correo %></p>
-                          </div>
-                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
-                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% } %>
-              </div>
-            </div>
-            <% carouselIndexFotografos++; %>
-          <% } %>
-        </div>
-        <!-- Controles de navegación -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#Fotografos" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#Fotografos" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-
-
-    <!-- Artesanos -->
-    <div class="Artesanos">
-      <section class="py-5 text-center container ">
-        <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
-          Artesanos
-        </h2>
-      </section>
-      <div id="Artesanos" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <% let carouselIndexArtesanos = 0; %>
-          <% for (let i = 0; i < artesanos.length; i += 5) { %>
-            <div class="carousel-item <%= carouselIndexArtesanos === 0 ? 'active' : '' %>">
-              <div class="row justify-content-center">
-                <% for (let j = i; j < i + 5 && j < artesanos.length; j++) { %>
-                  <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm ">
-                      <div class="card-img-top">
-                        <a href="/profile/<%= artesanos[j].nombreUsuario %>">
-                          <img src="<%= artesanos[j].foto %>" class="img-fluid rounded float" alt="Foto" />
-                        </a>
-                      </div>
-                      <div class="card-body bg-black">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="text-light">
-                            <p class="mb-1"><%= artesanos[j].nombreUsuario %></p>
-                            <p class="mb-1"><%= artesanos[j].correo %></p>
-                          </div>
-                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
-                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% } %>
-              </div>
-            </div>
-            <% carouselIndexArtesanos++; %>
-          <% } %>
-        </div>
-        <!-- Controles de navegación -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#Artesanos" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#Artesanos" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-
-
-    <!-- Otros -->
-    <div class="Otros">
-      <section class="py-5 text-center container ">
-        <h2 class="text-light font-weight-bold" style="position: absolute; left: 5%">
-          Otros
-        </h2>
-      </section>
-      <div id="Otros" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <% let carouselIndexOtros = 0; %>
-          <% for (let i = 0; i < otros.length; i += 5) { %>
-            <div class="carousel-item <%= carouselIndexOtros === 0 ? 'active' : '' %>">
-              <div class="row justify-content-center">
-                <% for (let j = i; j < i + 5 && j < otros.length; j++) { %>
-                  <div class="col-4" style="max-width: 280px;">
-                    <div class="card shadow-sm ">
-                      <div class="card-img-top">
-                        <a href="/profile/<%= otros[j].nombreUsuario %>">
-                          <img src="<%= otros[j].foto %>" class="img-fluid rounded float" alt="Foto" />
-                        </a>
-                      </div>
-                      <div class="card-body bg-black">
-                        <div class="d-flex justify-content-between align-items-center">
-                          <div class="text-light">
-                            <p class="mb-1"><%= otros[j].nombreUsuario %></p>
-                            <p class="mb-1"><%= otros[j].correo %></p>
-                          </div>
-                          <button class="btn-follow btn-outline-light" style="border-radius: 20px; padding: 5px 10px; font-size: 11px;" onclick="toggleFollow(this)">
-                            <i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <% } %>
-              </div>
-            </div>
-            <% carouselIndexOtros++; %>
-          <% } %>
-        </div>
-        <!-- Controles de navegación -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#Otros" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#Otros" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </div>
-
-
     <section id="FinalArt" class="text-center">
       <p class="text-light"><strong class="shadow">UNETE</strong> A LA</p>
       <p class="text-light"><strong class="shadow">COMUNIDAD</strong></p>
