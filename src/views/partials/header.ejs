@@ -12,6 +12,8 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
 
     <!-- Estilos propios -->
     <link rel="stylesheet" href="/styles.css" />
@@ -102,8 +104,28 @@
             </ul>
           </div>
         </div>
-        <a href="/register" class="register-button">Registrarse</a>
-        <a href="/login" class="loggin-button">Iniciar Sesion</a>
+        <!--CUANDO LA PANTALLA ES GRANDE-->
+        <% if (username) { %>
+        <div class="username d-none d-lg-flex">
+          <a class="user" href="/profile" ><%= username %></a>
+          <a class="loggin-button" href="/logout">Cerrar sesión</a>
+        </div>
+        <% } else { %>
+        <div class="d-none d-lg-inline">
+          <a href="/register" class="register-button">Registrarse</a>
+          <a href="/login" class="loggin-button">Iniciar Sesion</a>
+        </div>
+        <% } %>
+        <!--CUANDO LA PANTALLA ES CHICA-->
+        <div class="d-flex d-lg-none">
+          <% if (username) { %>
+            <p class="me-2">Bienvenido, <%= username %>!</p>
+            <a href="/logout" class="loggin-button btn-sm">Cerrar sesión</a>
+          <% } else { %>
+            <a href="/register" class="register-button btn-sm me-2">Registrarse</a>
+            <a href="/login" class="loggin-button btn-sm">Iniciar Sesión</a>
+          <% } %>
+        </div>
         <button
           class="navbar-toggler pe-0"
           type="button"

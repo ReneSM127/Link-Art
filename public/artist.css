@@ -11,6 +11,29 @@
   text-shadow: 4px 4px 8px #000000;
 }
 
+.btn {
+  background-color: black;
+  color: rgb(255, 255, 255);  /* Cambié el color del texto a blanco para que se vea sobre fondo negro */
+  font-size: 20px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 1s background-color, 0.5s transform;  /* Incluí transición para un efecto más suave */
+  margin: 10px;
+}
+
+.btn:hover {
+  background-color: #ffffff;  /* Un color gris oscuro cuando pasa el cursor por encima */
+  color: #000000;
+  transform: scale(1.05);  /* Un pequeño efecto de aumento al pasar el mouse */
+}
+
+.btn:focus {
+  outline: solid;
+  outline-color: rgb(0, 0, 0);
+  outline-width: 2px;
+}
+
 .carousel .carousel-indicators button {
   width: 100%; /* Aumenta el ancho para que parezcan líneas */
   height: 5px; /* Ajusta la altura */
@@ -69,4 +92,10 @@
 .custom-width {
   width: 210px; /* Cambia este valor según lo que necesites */
   height: 350px;
+}
+
+.btn-followed {
+  background-color: #0084ff; /* Verde */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
 }

@@ -1,26 +1,44 @@
-// Inicializa el carousel
-var carousel = new bootstrap.Carousel(document.getElementById('Destacados'), {
-    interval: 3000, // Cambia de diapositiva cada 3 segundos
+// Inicializa todos los carouseles
+document.querySelectorAll('.carousel').forEach(function(carouselElement) {
+  var carousel = new bootstrap.Carousel(carouselElement, {
+    interval: 5000, // Cambia de diapositiva cada 3 segundos
     wrap: true // Continúa el ciclo de diapositivas cuando llega al final
   });
 
   // Detener el carousel al pasar el mouse por encima
-  document.getElementById('Destacados').addEventListener('mouseenter', function () {
+  carouselElement.addEventListener('mouseenter', function () {
     carousel.pause();
   });
 
   // Reanudar el carousel al salir el mouse
-  document.getElementById('Destacados').addEventListener('mouseleave', function () {
+  carouselElement.addEventListener('mouseleave', function () {
     carousel.cycle();
   });
+});
 
-    // Ejemplo de ajustar el tamaño de la imagen de forma dinámica
-    document.addEventListener('DOMContentLoaded', function() {
-        // Cambiar el tamaño de las imágenes cuando se cargan
-        const images = document.querySelectorAll('.card-img-top img');
-        images.forEach(function(img) {
-          // Ajustar el tamaño de la imagen si es necesario
-          img.style.width = '100%';
-          img.style.height = 'auto';
-        });
-      });
+// Ajustar el tamaño de las imágenes de todos los carouseles
+document.addEventListener('DOMContentLoaded', function() {
+    // Cambiar el tamaño de las imágenes de todos los carouseles
+    const images = document.querySelectorAll('.carousel .card-img-top img');
+    images.forEach(function(img) {
+      // Ajustar el tamaño de las imágenes si es necesario
+      img.style.width = '100%';
+      img.style.height = 'auto';
+    });
+});
+
+function toggleFollow(button) {
+  if (button.classList.contains('btn-followed')) {
+    // Volver al estado original: "Seguir"
+    button.classList.remove('btn-followed');
+    button.innerHTML = '<i class="bi bi-person-plus" style="margin-right: 5px;"></i> Seguir';
+    button.style.backgroundColor = ''; // Restaurar al color original
+    button.style.color = ''; // Restaurar al color original
+  } else {
+    // Cambiar al estado "Siguiendo"
+    button.classList.add('btn-followed');
+    button.innerHTML = '<i class="bi bi-check" style="margin-right: 5px;"></i> Siguiendo';
+    button.style.backgroundColor = '#0084ff'; // Cambiar el color al hacer clic
+    button.style.color = 'white'; // Cambiar el color del texto
+  }
+}
