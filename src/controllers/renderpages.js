@@ -58,7 +58,8 @@ const renderArtistas = async (req, res) => {
             actores: results[4],   // Resultados de la quinta consulta
             fotografos: results[5],// Resultados de la sexta consulta
             artesanos: results[6], // Resultados de la séptima consulta
-            otros: results[7]      // Resultados de la octava consulta
+            otros: results[7],      // Resultados de la octava consulta
+            username: req.session.username
         });
     } catch (err) {
         console.error('Error al obtener datos:', err);
