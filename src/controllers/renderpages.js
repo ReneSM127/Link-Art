@@ -107,68 +107,71 @@ const renderRegister = (req, res) => {
 };
 
 const renderProfile = (req, res) => {
-  const query = "SELECT * FROM usuarios WHERE nombreUsuario = ?";
+  const queryUser = "SELECT * FROM usuarios WHERE nombreUsuario = ?";
+  const queryPosts = "SELECT * FROM Usuarios_Publicaciones WHERE nombreUsuario = ?";
   const username = req.params.nombreUsuario; // Extrae el nombre de usuario de la URL
 
-  connection.query(query, [username], (err, results) => {
+  // Consulta para obtener los datos del usuario
+  connection.query(queryUser, [username], (err, userResults) => {
     if (err) {
-      console.error("Error al extraer los datos:", err);
-      return res
-        .status(500)
-        .send("Error al extraer los datos de la base de datos.");
+      console.error("Error al extraer los datos del usuario:", err);
+      return res.status(500).send("Error al extraer los datos de la base de datos.");
     }
 
-    if (results.length === 0) {
+    if (userResults.length === 0) {
       return res.status(404).send("Usuario no encontrado");
     }
 
-    // Renderiza la vista y pasa los datos del usuario y la variable currentPage
-    res.render("profile", {
-      currentPage: "profile",
-      user: results[0],
-      username: req.session.username,
+    // Consulta para obtener las publicaciones del usuario
+    connection.query(queryPosts, [username], (err, postResults) => {
+      if (err) {
+        console.error("Error al extraer las publicaciones:", err);
+        return res.status(500).send("Error al extraer las publicaciones de la base de datos.");
+      }
+
+      // Renderiza la vista y pasa los datos del usuario y las publicaciones
+      res.render("profile", {
+        currentPage: "profile",
+        user: userResults[0], // Datos del usuario
+        posts: postResults,  // Publicaciones del usuario
+        username: req.session.username, // Nombre de usuario de la sesión actual
+      });
     });
   });
 };
 
 const renderProfileEdit = (req, res) => {
   if (req.session.userId) {
-    const query = "SELECT * FROM usuarios WHERE nombreUsuario = ?";
-    const username = req.session.username; // Extrae el nombre de usuario de la URL
-    const userId = req.session.userId; // Extrae el nombre de usuario de la URL
-    
-    connection.query(query, [username], (err, results) => {
+    const queryUser = "SELECT * FROM usuarios WHERE nombreUsuario = ?";
+    const queryPosts = "SELECT * FROM Usuarios_Publicaciones WHERE nombreUsuario = ?";
+    const username = req.session.username; // Extrae el nombre de usuario de la sesión actual
+
+    // Consulta para obtener los datos del usuario
+    connection.query(queryUser, [username], (err, userResults) => {
       if (err) {
-        console.error("Error al extraer los datos:", err);
-        return res
-          .status(500)
-          .send("Error al extraer los datos de la base de datos.");
+        console.error("Error al extraer los datos del usuario:", err);
+        return res.status(500).send("Error al extraer los datos de la base de datos.");
       }
 
-      if (results.length === 0) {
+      if (userResults.length === 0) {
         return res.status(404).send("Usuario no encontrado");
       }
-      const query2 = "SELECT * FROM publicaciones WHERE idUsuarios = ?";
-      connection.query(query2,[userId], (err, results2) =>{
-        if (results2.length === 0) {
-            return res.render("profileEdit", {
-                currentPage: "profile",
-                user: results[0],
-                publi: 0,
-                username: req.session.username,
-              });
-          }
-          // Renderiza la vista y pasa los datos del usuario y la variable currentPage
-          res.render("profileEdit", {
-            currentPage: "profile",
-            user: results[0],
-            publi: results2[0],
-            username: req.session.username,
-          });
 
-      })
+      // Consulta para obtener las publicaciones del usuario
+      connection.query(queryPosts, [username], (err, postResults) => {
+        if (err) {
+          console.error("Error al extraer las publicaciones:", err);
+          return res.status(500).send("Error al extraer las publicaciones de la base de datos.");
+        }
 
-
+        // Renderiza la vista y pasa los datos del usuario y las publicaciones
+        res.render("profileEdit", {
+          currentPage: "profile",   // Página actual
+          user: userResults[0],     // Datos del usuario
+          posts: postResults,       // Publicaciones del usuario
+          username: req.session.username, // Nombre de usuario de la sesión actual
+        });
+      });
     });
   } else {
     res.redirect("/login");
