@@ -1,5 +1,103 @@
 <%- include ('partials/header')%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprar</title>
+  <style>
+    body {
+      background-color: #000000;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-<h1>compras</h1>
+    h1 {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 2.5em;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.2em;
+      margin: 20px;
+    }
+
+    .container {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+    }
+
+    .card {
+      background-color: rgb(15, 15, 15);
+      color: white;
+      border-radius: 15px;
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+      
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+      
+    }
+
+    .card h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1em;
+      line-height: 1.5;
+    }
+
+    .spacer {
+  height: 20px; /* Espaciador vertical */
+  width: 100%;  /* Asegura que ocupe todo el ancho */
+}
+
+  </style>
+</head>
+<body>
+  <h1>¿Buscas añadir arte a tu colección?</h1>
+  <p>Estás en el lugar adecuado, explora en la variedad de obras que los talentosos artistas de LinkArt tienen para ti.</p>
+  <div class="spacer"></div>
+  <h2>Descubre nuestro proceso de compra</h2>
+
+  <div class="container">
+    <div class="card">
+      <h2>PASO 1</h2>
+      <p>Elije la obra o el artista que más te guste de la sección de Artistas u Obras.</p>
+    </div>
+    <div class="card">
+      <h2>PASO 2</h2>
+      <p>Revisa que la obra esté disponible, de ser así da clic en comprar.</p>
+    </div>
+    <div class="card">
+      <h2>PASO 3</h2>
+      <p>El artista recibirá el aviso de que estás interesado.</p>
+    </div>
+    <div class="card">
+      <h2>PASO 4</h2>
+      <p>Si el artista tiene la obra disponible y has realizado el pago, puedes disfrutar de tu nueva pieza de arte.</p>
+    </div>
+  </div>
+  <div class="spacer"></div>
+
+</body>
+</html>
 
 <%- include ('partials/footer')%>

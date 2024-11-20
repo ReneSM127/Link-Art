@@ -53,21 +53,21 @@
     <button class="add-post-btn">Añadir</button>
 
     <!-- Modal -->
-    <div id="modal" class="modal">
+    <button class="add-post-btn">Añadir</button>
+    <div id="modal2" class="modal">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close2">&times;</span>
         <section class="text-center">
           <h2>Crear Publicación</h2>
         </section>
         <form action="/upload" method="POST" enctype="multipart/form-data">
-          <label for="image">Cargar Imagen:</label>
-          <input type="file" name="image" accept="image/*" required />
-          <label for="desc">Descripción:</label>
+          <label for="username">cargar imagen:</label>
+          <input type="file" name="image" accept="image/*" />
+          <label for="bio">Descripción:</label>
           <textarea
             id="desc"
             name="desc"
             placeholder="Descripción..."
-            required
           ></textarea
           ><br />
           <button type="submit" class="align-items-center">
@@ -90,31 +90,30 @@
       </div>
     </section>
     <button class="add-post-btn">Añadir</button>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+          <span class="close2">&times;</span>
+          <section class="text-center">
+            <h2>Crear Publicación</h2>
+          </section>
+          <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="username">cargar imagen:</label>
+            <input type="file" name="image" accept="image/*" />
+            <label for="bio">Descripción:</label>
+            <textarea
+              id="desc"
+              name="desc"
+              placeholder="Descripción..."
+            ></textarea
+            ><br />
+            <button type="submit" class="align-items-center">
+              Guardar Cambios
+            </button>
+          </form>
+        </div>
+      </div>
 
     <!-- Modal -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <section class="text-center">
-          <h2>Crear Publicación</h2>
-        </section>
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-          <label for="image">Cargar Imagen:</label>
-          <input type="file" name="image" accept="image/*" required />
-          <label for="desc">Descripción:</label>
-          <textarea
-            id="desc"
-            name="desc"
-            placeholder="Descripción..."
-            required
-          ></textarea
-          ><br />
-          <button type="submit" class="align-items-center">
-            Guardar Cambios
-          </button>
-        </form>
-      </div>
-    </div>
     <% } %>
   </div>
   <div id="modal" class="modal">
@@ -134,6 +133,15 @@
         <label for="bio">Biografía:</label>
         <textarea id="bio" name="bio" placeholder="Descripción..."></textarea
         ><br />
+        <div id="categories">
+            <label><input type="checkbox" name="categories" value="pintores"> Pintores</label><br>
+            <label><input type="checkbox" name="categories" value="musicos"> Músicos</label><br>
+            <label><input type="checkbox" name="categories" value="escultores"> Escultores</label><br>
+            <label><input type="checkbox" name="categories" value="actores"> Actores</label><br>
+            <label><input type="checkbox" name="categories" value="fotografos"> Fotógrafos</label><br>
+            <label><input type="checkbox" name="categories" value="artesanos"> Artesanos</label><br>
+            <label><input type="checkbox" name="categories" value="otros"> Otros</label>
+        </div><br>
         <button type="submit" class="align-items-center">
           Guardar Cambios
         </button>
