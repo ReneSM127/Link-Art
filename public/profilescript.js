@@ -9,7 +9,7 @@ var span = document.getElementsByClassName("close")[0];
 
 // Cuando el usuario hace clic en el botón, abre el modal
 btn.onclick = function() {
-    modal.style.display = "block";
+    modal.style.display = "flex";
 }
 
 // Cuando el usuario hace clic en <span> (x), cierra el modal

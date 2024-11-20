@@ -70,27 +70,26 @@ body {
 
 /* Estilos para la ventana modal */
 .modal {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    z-index: 1;
-    left: 0;
+    position: fixed; /* Asegura que el modal esté centrado y fijo */
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
-    overflow: hidden; /* Evita el scroll */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    overflow-y: auto; /* Permitir desplazamiento si es necesario */
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
 }
 
-/* Estilos para el contenido del modal */
 .modal-content {
-    background-color: #fff;
-    margin: 15% auto; /* Ajusta el centrado vertical */
+    background: #fff;
     padding: 20px;
     border-radius: 10px;
-    width: 40%;
-    max-height: 80%; /* Asegura que el contenido no sobrepase el 80% de la ventana */
-    overflow: hidden; /* Desactiva el scroll dentro del modal */
-    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 90%; /* Limita el ancho máximo del modal */
+    max-height: 90%; /* Limita el alto máximo del modal */
+    overflow-y: auto; /* Permite desplazamiento interno si es necesario */
 }
 
 .close {
@@ -144,3 +143,30 @@ textarea{
 .modal-content button[type="submit"]:hover {
     background-color: #00000035; /* Color de fondo en hover */
 }
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    padding: 20px 0;
+  }
+  .tarjeta {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+  }
+  .tarjeta img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .tarjeta .contenido {
+    padding: 10px;
+  }
+ 
+  .tarjeta .descripcion {
+    font-size: 0.9em;
+    color: #666;
+  }
