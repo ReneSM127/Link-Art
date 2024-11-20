@@ -178,6 +178,10 @@ const renderProfileEdit = (req, res) => {
   }
 };
 
+const renderVender = (req, res) => {
+  res.render("vender", { currentPage: "vender", username: req.session.username });
+};
+
 module.exports = {
   renderIndex,
   renderFile,
@@ -189,5 +193,6 @@ module.exports = {
   renderProfile,
   renderIMG,
   renderAllArtists,
-  renderProfileEdit
+  renderProfileEdit,
+  renderVender
 };
